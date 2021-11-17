@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="employeeContext" prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.EmployeeFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Employee Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="596.0" layoutY="8.0" style="-fx-background-color: white;" text="+ New Employer" textFill="#1782bf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXTextField labelFloat="true" layoutX="32.0" layoutY="80.0" promptText="Employee Id" />
+      <JFXTextField labelFloat="true" layoutX="185.0" layoutY="80.0" prefHeight="25.0" prefWidth="314.0" promptText="Name" />
+      <JFXTextField labelFloat="true" layoutX="523.0" layoutY="80.0" prefHeight="25.0" prefWidth="190.0" promptText="NIC Num." />
+      <JFXTextField labelFloat="true" layoutX="32.0" layoutY="188.0" prefHeight="25.0" prefWidth="314.0" promptText="Address" />
+      <JFXTextField labelFloat="true" layoutX="523.0" layoutY="135.0" prefHeight="25.0" prefWidth="184.0" promptText="Contact Num." />
+      <ComboBox layoutX="32.0" layoutY="135.0" prefHeight="25.0" prefWidth="135.0" promptText="Gender" />
+      <TextField layoutX="32.0" layoutY="237.0" prefHeight="25.0" prefWidth="294.0" />
+      <JFXButton buttonType="RAISED" layoutX="345.0" layoutY="237.0" style="-fx-background-color: #1782bf;" text="Save Employer" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <ComboBox layoutX="185.0" layoutY="135.0" prefHeight="25.0" prefWidth="156.0" promptText="Job Position" />
+      <ComboBox layoutX="365.0" layoutY="135.0" prefHeight="25.0" prefWidth="135.0" promptText="Civil Status" />
+      <TableView layoutY="293.0" prefHeight="244.0" prefWidth="729.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Employee Id" />
+          <TableColumn prefWidth="147.0" text="Name" />
+            <TableColumn minWidth="3.0" prefWidth="102.0" text="NIC " />
+            <TableColumn text="Gender" />
+            <TableColumn text="Job Position" />
+            <TableColumn prefWidth="99.0" text="Civil Status" />
+            <TableColumn prefWidth="145.0" text="Address" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

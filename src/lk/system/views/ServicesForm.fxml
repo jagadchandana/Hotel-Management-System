@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.ServicesFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Services Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="614.0" layoutY="8.0" style="-fx-background-color: #1782bf;" text="+ New Service" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXTextField layoutX="14.0" layoutY="65.0" promptText="Service Id" />
+      <JFXButton layoutX="274.0" layoutY="210.0" style="-fx-background-color: #1782bf;" text="Sava Service" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <TableView layoutX="14.0" layoutY="256.0" prefHeight="200.0" prefWidth="339.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Service Id" />
+          <TableColumn prefWidth="75.0" text="Foods On" />
+            <TableColumn prefWidth="75.0" text="Bar On" />
+            <TableColumn prefWidth="115.0" text="Tronasport On" />
+        </columns>
+      </TableView>
+      <JFXToggleButton layoutX="14.0" layoutY="90.0" text="Foods On" />
+      <JFXToggleButton layoutX="14.0" layoutY="139.0" text="Bar On" />
+      <JFXToggleButton layoutX="184.0" layoutY="90.0" text="Transport On" />
+   </children>
+</AnchorPane>

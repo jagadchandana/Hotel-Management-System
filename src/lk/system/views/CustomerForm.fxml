@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.CustomerFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Customer Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="609.0" layoutY="8.0" onAction="#newCustomerOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="+ New User" textFill="#1782bf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="txtCustomerId" labelFloat="true" layoutX="22.0" layoutY="70.0" promptText="Customer Id" />
+      <JFXTextField fx:id="txtCustomerName" labelFloat="true" layoutX="175.0" layoutY="70.0" prefHeight="25.0" prefWidth="314.0" promptText="Name" />
+      <JFXTextField fx:id="txtNICNum" labelFloat="true" layoutX="513.0" layoutY="70.0" prefHeight="25.0" prefWidth="190.0" promptText="NIC Num." />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="389.0" layoutY="125.0" prefHeight="25.0" prefWidth="314.0" promptText="Address" />
+      <JFXTextField fx:id="txtContactNum" labelFloat="true" layoutX="175.0" layoutY="125.0" prefHeight="25.0" prefWidth="184.0" promptText="Contact Num." />
+      <JFXTextField fx:id="txtRoomId" labelFloat="true" layoutX="22.0" layoutY="178.0" promptText="Room Id" />
+      <JFXTextField fx:id="txtServiceId" labelFloat="true" layoutX="175.0" layoutY="178.0" promptText="Service Id" />
+      <TableView fx:id="tblCustomer" layoutY="271.0" prefHeight="255.0" prefWidth="729.0">
+        <columns>
+          <TableColumn fx:id="colCusId" prefWidth="75.0" text="Customer Id" />
+          <TableColumn fx:id="colCusName" prefWidth="149.0" text="Name" />
+            <TableColumn fx:id="colCusNIC" text="NIC" />
+            <TableColumn fx:id="colCusGender" prefWidth="70.0" text="Gender" />
+            <TableColumn fx:id="colCusAddress" prefWidth="129.0" text="Address" />
+            <TableColumn fx:id="colCusConNumber" prefWidth="93.0" text="Contact Num." />
+            <TableColumn fx:id="colCusRoomId" prefWidth="61.0" text="Room Id" />
+            <TableColumn fx:id="colCusServiceId" prefWidth="69.0" text="Service Id" />
+        </columns>
+      </TableView>
+      <ComboBox fx:id="cmbGender" layoutX="22.0" layoutY="125.0" prefHeight="25.0" prefWidth="135.0" promptText="Gender" />
+      <TextField fx:id="txtSearchbar" layoutX="22.0" layoutY="227.0" prefHeight="25.0" prefWidth="294.0" />
+      <JFXButton fx:id="btnSaveCustomer" buttonType="RAISED" layoutX="335.0" layoutY="227.0" onAction="#saveCustomerOnAction" style="-fx-background-color: #1782bf;" text="Save Customer" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="335.0" layoutY="178.0" onAction="#deleteCustomerOnAction" style="-fx-background-color: #1782bf;" text="Delete Customer" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

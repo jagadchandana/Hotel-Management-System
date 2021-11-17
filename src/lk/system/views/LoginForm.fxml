@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="LoginFormContext" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.LoginFormController">
+   <children>
+      <Label layoutX="9.0" layoutY="14.0" text="Login" textFill="#1782bf">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="51.0" layoutY="19.0" prefHeight="25.0" prefWidth="273.0" />
+      <JFXTextField focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="60.0" prefHeight="25.0" prefWidth="302.0" promptText="User Id" unFocusColor="#4059a9" />
+      <JFXPasswordField focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="117.0" prefHeight="25.0" prefWidth="302.0" promptText="Password" unFocusColor="#4059a9" />
+      <JFXButton buttonType="RAISED" layoutX="18.0" layoutY="175.0" onAction="#LoginOnAction" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: #1782bf;" text="Let's Go" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Label layoutX="155.0" layoutY="220.0" text="OR" />
+      <Separator layoutX="27.0" layoutY="227.0" prefHeight="3.0" prefWidth="113.0" />
+      <Separator layoutX="187.0" layoutY="226.0" prefHeight="2.0" prefWidth="122.0" />
+      <JFXButton buttonType="RAISED" layoutX="18.0" layoutY="252.0" onAction="#PreSignUpOnAction" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: #1782bf;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="332.0" layoutY="4.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="4.0" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.RoomFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Room Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton layoutX="627.0" layoutY="7.0" style="-fx-background-color: #1782bf;" text="+ New Room" textFill="WHITE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="61.0" promptText="Room Id" />
+      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="107.0" promptText="Room Name" />
+      <MenuButton layoutX="14.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Types">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </MenuButton>
+      <TableView layoutX="14.0" layoutY="214.0" prefHeight="200.0" prefWidth="470.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Room Id" />
+          <TableColumn prefWidth="135.0" text="Room Name" />
+            <TableColumn prefWidth="108.0" text="Type" />
+            <TableColumn prefWidth="149.0" text="Description" />
+        </columns>
+      </TableView>
+      <JFXButton layoutX="235.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

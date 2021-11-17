@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="SignupFormContext" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.SignupFormController">
+   <children>
+      <Label layoutX="24.0" layoutY="14.0" text="Sign Up" textFill="#1782bf">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Separator layoutX="80.0" layoutY="24.0" prefHeight="17.0" prefWidth="255.0" />
+      <JFXTextField fx:id="txtUserId" focusColor="#1782bf" labelFloat="true" layoutX="32.0" layoutY="70.0" prefHeight="25.0" prefWidth="302.0" promptText="User Id" unFocusColor="#4059a9" />
+      <JFXPasswordField fx:id="txtUserName" focusColor="#1782bf" labelFloat="true" layoutX="32.0" layoutY="125.0" prefHeight="25.0" prefWidth="302.0" promptText="User Name" unFocusColor="#4059a9" />
+      <JFXButton buttonType="RAISED" layoutX="32.0" layoutY="338.0" onAction="#SignUpFormOnAction" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: #1782bf;" text="Sign Up" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </JFXButton>
+      <Separator layoutX="334.0" layoutY="4.0" orientation="VERTICAL" prefHeight="393.0" prefWidth="17.0" />
+      <JFXPasswordField fx:id="txtPassword" focusColor="#1782bf" labelFloat="true" layoutX="32.0" layoutY="225.0" prefHeight="25.0" prefWidth="302.0" promptText="Password" unFocusColor="#4059a9" />
+      <JFXPasswordField fx:id="txtRePassword" focusColor="#1782bf" labelFloat="true" layoutX="32.0" layoutY="281.0" prefHeight="25.0" prefWidth="302.0" promptText="Re-type Password" unFocusColor="#4059a9" />
+      <JFXPasswordField fx:id="txtJobPosition" focusColor="#1782bf" labelFloat="true" layoutX="32.0" layoutY="180.0" prefHeight="25.0" prefWidth="302.0" promptText="Job Position" unFocusColor="#4059a9" />
+   </children>
+</AnchorPane>

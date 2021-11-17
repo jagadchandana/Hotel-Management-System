@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.InventoryFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Inventory Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="172.0" layoutY="7.0" onAction="#permenentIOnAction" style="-fx-background-color: #1782bf;" text="Permenent Inventory" textFill="#ebe9e9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="330.0" layoutY="7.0" onAction="#CacheIOnAction" prefHeight="25.0" prefWidth="121.0" style="-fx-background-color: #1782bf;" text="Cache Inventory" textFill="#ebe9e9">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="ParentInventoryUIContext" layoutY="39.0" prefHeight="560.0" prefWidth="729.0" />
+   </children>
+</AnchorPane>
