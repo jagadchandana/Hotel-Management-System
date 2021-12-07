@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -19,37 +21,43 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="596.0" layoutY="8.0" style="-fx-background-color: white;" text="+ New Employer" textFill="#1782bf">
+            <JFXButton buttonType="RAISED" layoutX="596.0" layoutY="8.0" onAction="#newEmployerOnAction" style="-fx-background-color: white;" text="+ New Employer" textFill="#1782bf">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXTextField labelFloat="true" layoutX="32.0" layoutY="80.0" promptText="Employee Id" />
-      <JFXTextField labelFloat="true" layoutX="185.0" layoutY="80.0" prefHeight="25.0" prefWidth="314.0" promptText="Name" />
-      <JFXTextField labelFloat="true" layoutX="523.0" layoutY="80.0" prefHeight="25.0" prefWidth="190.0" promptText="NIC Num." />
-      <JFXTextField labelFloat="true" layoutX="32.0" layoutY="188.0" prefHeight="25.0" prefWidth="314.0" promptText="Address" />
-      <JFXTextField labelFloat="true" layoutX="523.0" layoutY="135.0" prefHeight="25.0" prefWidth="184.0" promptText="Contact Num." />
-      <ComboBox layoutX="32.0" layoutY="135.0" prefHeight="25.0" prefWidth="135.0" promptText="Gender" />
-      <TextField layoutX="32.0" layoutY="237.0" prefHeight="25.0" prefWidth="294.0" />
-      <JFXButton buttonType="RAISED" layoutX="345.0" layoutY="237.0" style="-fx-background-color: #1782bf;" text="Save Employer" textFill="#ebe9e9">
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="32.0" layoutY="80.0" promptText="Employee Id" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="248.0" layoutY="80.0" prefHeight="25.0" prefWidth="234.0" promptText="Name" />
+      <JFXTextField fx:id="txtNic" labelFloat="true" layoutX="523.0" layoutY="80.0" prefHeight="25.0" prefWidth="190.0" promptText="NIC Num." />
+      <JFXTextField fx:id="txtAddress" labelFloat="true" layoutX="238.0" layoutY="135.0" prefHeight="25.0" prefWidth="314.0" promptText="Address" />
+      <JFXTextField fx:id="txtContact" labelFloat="true" layoutX="32.0" layoutY="135.0" prefHeight="25.0" prefWidth="184.0" promptText="Contact Num." />
+      <TextField fx:id="txtSearch" layoutX="32.0" layoutY="237.0" prefHeight="25.0" prefWidth="294.0" />
+      <JFXButton buttonType="RAISED" layoutX="345.0" layoutY="237.0" onAction="#deleteEmployeeOnAction" style="-fx-background-color: #1782bf;" text="Delete Employer" textFill="#ebe9e9">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ComboBox layoutX="185.0" layoutY="135.0" prefHeight="25.0" prefWidth="156.0" promptText="Job Position" />
-      <ComboBox layoutX="365.0" layoutY="135.0" prefHeight="25.0" prefWidth="135.0" promptText="Civil Status" />
-      <TableView layoutY="293.0" prefHeight="244.0" prefWidth="729.0">
+      <ComboBox fx:id="cmbJPosition" layoutX="32.0" layoutY="185.0" prefHeight="25.0" prefWidth="156.0" promptText="Job Position" />
+      <TableView fx:id="tblEmployee" layoutY="293.0" prefHeight="244.0" prefWidth="729.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Employee Id" />
-          <TableColumn prefWidth="147.0" text="Name" />
-            <TableColumn minWidth="3.0" prefWidth="102.0" text="NIC " />
-            <TableColumn text="Gender" />
-            <TableColumn text="Job Position" />
-            <TableColumn prefWidth="99.0" text="Civil Status" />
-            <TableColumn prefWidth="145.0" text="Address" />
+          <TableColumn fx:id="colId" prefWidth="75.0" text="Employee Id" />
+            <TableColumn fx:id="colState" prefWidth="99.0" text="Status" />
+          <TableColumn fx:id="colName" prefWidth="147.0" text="Name" />
+            <TableColumn fx:id="colNic" minWidth="3.0" prefWidth="102.0" text="NIC " />
+            <TableColumn fx:id="colDOB" text="DOB" />
+            <TableColumn fx:id="colAddress" text="Address" />
+            <TableColumn fx:id="colJobType" prefWidth="145.0" text="Job Type" />
         </columns>
       </TableView>
+      <JFXComboBox fx:id="cmbStates" layoutX="188.0" layoutY="80.0" prefHeight="25.0" prefWidth="59.0" promptText="Status" />
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="496.0" layoutY="237.0" onAction="#seveEmployeeOnAction" style="-fx-background-color: #1782bf;" text="Save Employer" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXDatePicker fx:id="dpDOB" defaultColor="#1782bf" layoutX="326.0" layoutY="185.0" promptText="DOB" />
+      <JFXDatePicker fx:id="dpSettleDate" defaultColor="#1782bf" layoutX="523.0" layoutY="185.0" promptText="Settle Date" />
    </children>
 </AnchorPane>

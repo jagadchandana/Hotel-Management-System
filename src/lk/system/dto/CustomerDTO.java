@@ -1,12 +1,12 @@
-package lk.system.views.tm;
+package lk.system.dto;
 
-public class CustomerTM {
+public class CustomerDTO {
     private String customerId;
-    private String state;
+    private String State;
     private String name;
     private String nic;
+    private String contact;
     private String address;
-    private String contactNum;
     private String roomId;
     private String serviceId;
     private String onDate;
@@ -14,16 +14,16 @@ public class CustomerTM {
     private String onTime;
     private String offTime;
 
-    public CustomerTM() {
+    public CustomerDTO() {
     }
 
-    public CustomerTM(String customerId, String state, String name, String nic, String address, String contactNum, String roomId, String serviceId, String onDate, String offDate, String onTime, String offTime) {
+    public CustomerDTO(String customerId, String state, String name, String nic, String contact, String address, String roomId, String serviceId, String onDate, String offDate, String onTime, String offTime) {
         this.customerId = customerId;
-        this.state = state;
+        State = state;
         this.name = name;
         this.nic = nic;
+        this.contact = contact;
         this.address = address;
-        this.contactNum = contactNum;
         this.roomId = roomId;
         this.serviceId = serviceId;
         this.onDate = onDate;
@@ -41,11 +41,11 @@ public class CustomerTM {
     }
 
     public String getState() {
-        return state;
+        return State;
     }
 
     public void setState(String state) {
-        this.state = state;
+        State = state;
     }
 
     public String getName() {
@@ -64,20 +64,20 @@ public class CustomerTM {
         this.nic = nic;
     }
 
+    public String getContact() {
+        return contact;
+    }
+
+    public void setContact(String contact) {
+        this.contact = contact;
+    }
+
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
-    }
-
-    public String getContactNum() {
-        return contactNum;
-    }
-
-    public void setContactNum(String contactNum) {
-        this.contactNum = contactNum;
     }
 
     public String getRoomId() {
@@ -130,13 +130,13 @@ public class CustomerTM {
 
     @Override
     public String toString() {
-        return "CustomerTM{" +
+        return "CustomerDTO{" +
                 "customerId='" + customerId + '\'' +
-                ", state='" + state + '\'' +
+                ", State='" + State + '\'' +
                 ", name='" + name + '\'' +
                 ", nic='" + nic + '\'' +
+                ", contact='" + contact + '\'' +
                 ", address='" + address + '\'' +
-                ", contactNum='" + contactNum + '\'' +
                 ", roomId='" + roomId + '\'' +
                 ", serviceId='" + serviceId + '\'' +
                 ", onDate='" + onDate + '\'' +

@@ -33,6 +33,7 @@ public class SignupFormController {
             statement.setObject(3,txtJobPosition.getText());
             statement.setObject(4,txtPassword.getText());
 
+
             boolean isSaved = statement.executeUpdate()>0;
             if (isSaved) {
                 new Alert(Alert.AlertType.CONFIRMATION, "User Was Saved", ButtonType.OK).show();

@@ -38,15 +38,33 @@
           <MenuItem mnemonicParsing="false" text="Action 2" />
         </items>
       </MenuButton>
-      <TableView layoutX="14.0" layoutY="214.0" prefHeight="200.0" prefWidth="470.0">
+      <TableView layoutX="14.0" layoutY="214.0" prefHeight="200.0" prefWidth="617.0">
         <columns>
           <TableColumn prefWidth="75.0" text="Room Id" />
           <TableColumn prefWidth="135.0" text="Room Name" />
             <TableColumn prefWidth="108.0" text="Type" />
             <TableColumn prefWidth="149.0" text="Description" />
+            <TableColumn prefWidth="149.0" text="Option" />
         </columns>
       </TableView>
       <JFXButton layoutX="235.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField labelFloat="true" layoutX="207.0" layoutY="74.0" prefHeight="25.0" prefWidth="369.0" promptText="Description" />
+      <JFXButton layoutX="352.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="445.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>

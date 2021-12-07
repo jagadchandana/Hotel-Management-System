@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import lk.system.controller.LoginFormController;
 
 import java.io.IOException;
 
@@ -18,5 +19,7 @@ public class Appinitializer extends Application {
         primaryStage.setScene(new Scene(FXMLLoader.load(getClass().getResource("views/LoginForm.fxml"))));
         primaryStage.setTitle("Hotel Management");
         primaryStage.show();
+
+
     }
 }

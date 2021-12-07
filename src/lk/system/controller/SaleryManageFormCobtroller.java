@@ -9,6 +9,7 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.system.views.tm.JobTM;
 
+import javax.swing.*;
 import java.sql.*;
 import java.util.Optional;
 
@@ -34,6 +35,7 @@ public class SaleryManageFormCobtroller {
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
         loadAllCustomer(" ");
+        loadComboBox();
     }
 
     public void newJobOnAction(ActionEvent actionEvent) {
@@ -72,6 +74,7 @@ public class SaleryManageFormCobtroller {
            statement.setObject(2,"%"+searchText+"%");
            statement.setObject(3,"%"+searchText+"%");
             ResultSet resultSet = statement.executeQuery();
+
             while (resultSet.next()) {
                 Button btn = new Button("Delete");
                 observableList.add(new JobTM(
@@ -114,5 +117,23 @@ public class SaleryManageFormCobtroller {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
+    }
+
+    private void loadComboBox(){
+        try {
+        Class.forName("com.mysql.cj.jdbc.Driver");
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hotel_db", "root", "mysql");
+        String SQL = "SELECT Job_Position FROM job";
+        PreparedStatement statement = connection.prepareStatement(SQL);
+            ResultSet set = statement.executeQuery();
+            while (set.next()){
+                FXCollections.observableArrayList().add(set.getString(1));
+            }
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        cmbJobPosition.setItems((FXCollections.observableArrayList()));
     }
 }

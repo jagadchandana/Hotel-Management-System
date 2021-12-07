@@ -16,6 +16,7 @@ public class LoginFormController {
 
         Stage stage = (Stage) LoginFormContext.getScene().getWindow();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/DashBoardForm.fxml"))));
+
     }
 
     public void PreSignUpOnAction(ActionEvent actionEvent) throws IOException {
