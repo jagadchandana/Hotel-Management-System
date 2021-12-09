@@ -1,25 +1,25 @@
-package lk.system.dto;
+package lk.system.views.tm;
 
-public class EmployeeDTO {
+public class EmployeeTM {
     private String id;
     private String state;
     private String name;
     private String nic;
-    private String ontact;
+    private String contact;
     private String address;
     private String dob;
     private String sattleDate;
     private String jobType;
 
-    public EmployeeDTO() {
+    public EmployeeTM() {
     }
 
-    public EmployeeDTO(String id, String state, String name, String nic, String ontact, String address, String dob, String sattleDate, String jobType) {
+    public EmployeeTM(String id, String state, String name, String nic, String contact, String address, String dob, String sattleDate, String jobType) {
         this.id = id;
         this.state = state;
         this.name = name;
         this.nic = nic;
-        this.ontact = ontact;
+        this.contact = contact;
         this.address = address;
         this.dob = dob;
         this.sattleDate = sattleDate;
@@ -58,12 +58,12 @@ public class EmployeeDTO {
         this.nic = nic;
     }
 
-    public String getOntact() {
-        return ontact;
+    public String getContact() {
+        return contact;
     }
 
-    public void setOntact(String ontact) {
-        this.ontact = ontact;
+    public void setContact(String contact) {
+        this.contact = contact;
     }
 
     public String getAddress() {
@@ -100,12 +100,12 @@ public class EmployeeDTO {
 
     @Override
     public String toString() {
-        return "EmployeeDTO{" +
+        return "EmployeeTM{" +
                 "id='" + id + '\'' +
                 ", state='" + state + '\'' +
                 ", name='" + name + '\'' +
                 ", nic='" + nic + '\'' +
-                ", ontact='" + ontact + '\'' +
+                ", contact='" + contact + '\'' +
                 ", address='" + address + '\'' +
                 ", dob='" + dob + '\'' +
                 ", sattleDate='" + sattleDate + '\'' +

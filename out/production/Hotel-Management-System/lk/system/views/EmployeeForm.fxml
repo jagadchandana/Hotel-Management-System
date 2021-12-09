@@ -43,16 +43,17 @@
       <TableView fx:id="tblEmployee" layoutY="293.0" prefHeight="244.0" prefWidth="729.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="Employee Id" />
-            <TableColumn fx:id="colState" prefWidth="99.0" text="Status" />
-          <TableColumn fx:id="colName" prefWidth="147.0" text="Name" />
-            <TableColumn fx:id="colNic" minWidth="3.0" prefWidth="102.0" text="NIC " />
-            <TableColumn fx:id="colDOB" text="DOB" />
-            <TableColumn fx:id="colAddress" text="Address" />
-            <TableColumn fx:id="colJobType" prefWidth="145.0" text="Job Type" />
+            <TableColumn fx:id="colState" prefWidth="48.0" text="Status" />
+          <TableColumn fx:id="colName" prefWidth="119.0" text="Name" />
+            <TableColumn fx:id="colNic" minWidth="3.0" prefWidth="89.0" text="NIC " />
+            <TableColumn fx:id="colDOB" prefWidth="83.0" text="DOB" />
+            <TableColumn fx:id="colAddress" prefWidth="136.0" text="Address" />
+            <TableColumn fx:id="colsdate" prefWidth="71.0" text="Sattle Date" />
+            <TableColumn fx:id="colJobType" prefWidth="107.0" text="Job Type" />
         </columns>
       </TableView>
-      <JFXComboBox fx:id="cmbStates" layoutX="188.0" layoutY="80.0" prefHeight="25.0" prefWidth="59.0" promptText="Status" />
-      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="496.0" layoutY="237.0" onAction="#seveEmployeeOnAction" style="-fx-background-color: #1782bf;" text="Save Employer" textFill="#ebe9e9">
+      <JFXComboBox fx:id="cmbStates" layoutX="179.0" layoutY="80.0" prefHeight="25.0" prefWidth="68.0" promptText="Status" />
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="496.0" layoutY="237.0" onAction="#saveEmployeeOnAction" style="-fx-background-color: #1782bf;" text="Save Employer" textFill="#ebe9e9">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>

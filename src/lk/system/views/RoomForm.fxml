@@ -4,8 +4,6 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -20,7 +18,7 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXButton layoutX="627.0" layoutY="7.0" style="-fx-background-color: #1782bf;" text="+ New Room" textFill="WHITE">
+            <JFXButton layoutX="627.0" layoutY="7.0" onAction="#newRoomOnAction" style="-fx-background-color: #1782bf;" text="+ New Room" textFill="WHITE">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
@@ -30,24 +28,19 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="61.0" promptText="Room Id" />
-      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="107.0" promptText="Room Name" />
-      <MenuButton layoutX="14.0" layoutY="163.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="135.0" text="Types">
-        <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
-        </items>
-      </MenuButton>
-      <TableView layoutX="14.0" layoutY="214.0" prefHeight="200.0" prefWidth="617.0">
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="14.0" layoutY="61.0" promptText="Room Id" />
+      <JFXTextField fx:id="txtRoomName" labelFloat="true" layoutX="14.0" layoutY="107.0" promptText="Room Name" />
+      <TableView fx:id="tblRoom" layoutX="14.0" layoutY="214.0" prefHeight="200.0" prefWidth="617.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Room Id" />
-          <TableColumn prefWidth="135.0" text="Room Name" />
-            <TableColumn prefWidth="108.0" text="Type" />
-            <TableColumn prefWidth="149.0" text="Description" />
-            <TableColumn prefWidth="149.0" text="Option" />
+          <TableColumn fx:id="colId" prefWidth="75.0" text="Room Id" />
+          <TableColumn fx:id="colName" prefWidth="135.0" text="Room Name" />
+            <TableColumn fx:id="colType" prefWidth="108.0" text="Type" />
+            <TableColumn fx:id="colDescription" prefWidth="149.0" text="Description" />
+            <TableColumn fx:id="colOption" prefWidth="149.0" text="Option" />
         </columns>
       </TableView>
-      <JFXButton layoutX="235.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
+      <JFXTextField fx:id="txtDescription" labelFloat="true" layoutX="207.0" layoutY="74.0" prefHeight="25.0" prefWidth="369.0" promptText="Description" />
+      <JFXButton fx:id="btnSave" layoutX="300.0" layoutY="163.0" onAction="#SaveRoomOnAction" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -55,22 +48,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextField labelFloat="true" layoutX="207.0" layoutY="74.0" prefHeight="25.0" prefWidth="369.0" promptText="Description" />
-      <JFXButton layoutX="352.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
-      <JFXButton layoutX="445.0" layoutY="163.0" style="-fx-background-color: #1782bf;" text="Save Room" textFill="WHITE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </JFXButton>
+      <JFXTextField fx:id="txtRoomType" labelFloat="true" layoutX="26.0" layoutY="163.0" promptText="Room Type" />
    </children>
 </AnchorPane>

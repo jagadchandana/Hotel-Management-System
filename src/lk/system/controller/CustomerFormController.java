@@ -68,9 +68,6 @@ public class CustomerFormController {
             }
 
         });
-        txtCustomerId.textProperty().addListener((observable, oldValue, newValue) -> {
-            loadAllCustomers(newValue);
-        });
         txtSearchbar.textProperty().addListener((observable, oldValue, newValue) -> {
             loadAllCustomers(newValue);
         });

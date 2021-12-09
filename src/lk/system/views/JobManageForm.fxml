@@ -4,20 +4,18 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.Cursor?>
-<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="SaleryContext" prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.SaleryManageFormCobtroller">
+<AnchorPane fx:id="SaleryContext" prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.JobManageFormCobtroller">
    <children>
       <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
          <children>
-            <Label layoutX="14.0" layoutY="9.0" text="Salary Management" textFill="#fcfcfc">
+            <Label layoutX="14.0" layoutY="9.0" text="Job Management" textFill="#fcfcfc">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
@@ -32,11 +30,7 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="562.0" fitWidth="723.0" layoutX="6.0" layoutY="38.0" pickOnBounds="true">
-         <image>
-            <Image url="@../assert/238395627_391291302357124_597925990177283398_n.jpg" />
-         </image>
-      </ImageView>
+      <ImageView fitHeight="562.0" fitWidth="723.0" layoutX="6.0" layoutY="38.0" pickOnBounds="true" />
       <JFXTextField fx:id="txtJobId" labelFloat="true" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="116.0" promptText="Job Id">
          <font>
             <Font name="System Bold" size="12.0" />
@@ -62,6 +56,6 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <ComboBox fx:id="cmbJobPosition" layoutX="14.0" layoutY="121.0" prefWidth="150.0" promptText="Job Position" />
+      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="127.0" prefHeight="25.0" prefWidth="116.0" promptText="Job Position" />
    </children>
 </AnchorPane>

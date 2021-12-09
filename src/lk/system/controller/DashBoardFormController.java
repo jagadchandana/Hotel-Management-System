@@ -58,7 +58,7 @@ public class DashBoardFormController {
     }
 
     public void btnSalaryOnAction(ActionEvent actionEvent) throws IOException {
-        setUi("SaleryManageForm");
+        setUi("JobManageForm");
     }
 
     public void btnRoomOnAction(ActionEvent actionEvent) throws IOException {

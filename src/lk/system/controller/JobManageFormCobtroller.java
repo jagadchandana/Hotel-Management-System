@@ -13,7 +13,7 @@ import javax.swing.*;
 import java.sql.*;
 import java.util.Optional;
 
-public class SaleryManageFormCobtroller {
+public class JobManageFormCobtroller {
     public JFXTextField txtJobId;
     public JFXTextField txtHourRate;
     public JFXTextField txtMonthlyRate;
