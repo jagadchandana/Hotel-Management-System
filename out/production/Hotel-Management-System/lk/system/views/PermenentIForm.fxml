@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane prefHeight="561.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.PermenentIFormController">
    <children>
@@ -16,5 +23,36 @@
             </Label>
          </children>
       </AnchorPane>
+      <JFXTextField fx:id="txtCode" labelFloat="true" layoutX="14.0" layoutY="63.0" promptText="Item Code" />
+      <JFXTextField fx:id="txtName" labelFloat="true" layoutX="14.0" layoutY="108.0" prefHeight="25.0" prefWidth="135.0" promptText="Item Name" />
+      <JFXTextField fx:id="txtBrand" labelFloat="true" layoutX="14.0" layoutY="168.0" prefHeight="25.0" prefWidth="183.0" promptText="Item Brand" />
+      <AnchorPane layoutX="230.0" layoutY="73.0" prefHeight="416.0" prefWidth="485.0" style="-fx-background-color: gray; -fx-background-radius: 10;">
+         <children>
+            <TableView fx:id="tblPermanentInventory" layoutX="10.0" layoutY="14.0" prefHeight="396.0" prefWidth="464.0" style="-fx-background-radius: 10;">
+              <columns>
+                <TableColumn fx:id="colCode" prefWidth="42.0" text="Code" />
+                <TableColumn fx:id="colName" prefWidth="111.0" text="Name" />
+                  <TableColumn fx:id="colQty" prefWidth="50.0" text="Quntity" />
+                  <TableColumn fx:id="colBrand" prefWidth="74.0" text="Brand" />
+                  <TableColumn fx:id="colCompany" prefWidth="95.0" text="Company" />
+                  <TableColumn fx:id="colInputDate" prefWidth="87.0" text="Input Date" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+      <JFXDatePicker fx:id="dpInput" layoutX="20.0" layoutY="281.0" promptText="Input Date" />
+      <JFXTextField fx:id="txtCompany" labelFloat="true" layoutX="14.0" layoutY="221.0" prefHeight="25.0" prefWidth="183.0" promptText="Company" />
+      <JFXToggleButton fx:id="tbtnWarranty" graphicTextGap="2.0" layoutX="14.0" layoutY="400.0" prefHeight="0.0" prefWidth="120.0" size="5.0" text="Warenty" />
+      <JFXButton fx:id="btnSave" layoutX="20.0" layoutY="440.0" onAction="#saveItemOnAction" text="Save Item" />
+      <JFXButton layoutX="142.0" layoutY="37.0" onAction="#newItemOnAction" text="New Item" />
+      <JFXButton layoutX="140.0" layoutY="440.0" onAction="#deleteItemOnAction" text="Delete" />
+      <JFXTextArea fx:id="txtDescription" labelFloat="true" layoutX="14.0" layoutY="326.0" prefHeight="66.0" prefWidth="201.0" promptText="Description" />
+      <TextField fx:id="txtSearch" layoutX="243.0" layoutY="35.0" />
+      <Label layoutX="333.0" layoutY="57.0" text="Search here...">
+         <font>
+            <Font size="10.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtQty" layoutX="163.0" layoutY="108.0" prefHeight="25.0" prefWidth="59.0" />
    </children>
 </AnchorPane>

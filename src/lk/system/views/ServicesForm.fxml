@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
-<?import com.jfoenix.controls.JFXToggleButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -18,29 +19,50 @@
                   <Font name="System Bold" size="14.0" />
                </font>
             </Label>
-            <JFXButton layoutX="614.0" layoutY="8.0" style="-fx-background-color: #1782bf;" text="+ New Service" textFill="WHITE">
+            <JFXButton layoutX="614.0" layoutY="8.0" onAction="#newServicesOnAction" style="-fx-background-color: #1782bf;" text="+ New Service" textFill="WHITE">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
          </children>
       </AnchorPane>
-      <JFXTextField layoutX="14.0" layoutY="65.0" promptText="Service Id" />
-      <JFXButton layoutX="274.0" layoutY="210.0" style="-fx-background-color: #1782bf;" text="Sava Service" textFill="WHITE">
+      <JFXTextField fx:id="txtId" layoutX="14.0" layoutY="65.0" promptText="Service Id" />
+      <JFXButton fx:id="btnSave" layoutX="274.0" layoutY="210.0" onAction="#saveServicesOnAction" style="-fx-background-color: #1782bf;" text="Save Service" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <TableView layoutX="14.0" layoutY="256.0" prefHeight="200.0" prefWidth="339.0">
+      <TableView fx:id="tblServices" layoutX="14.0" layoutY="256.0" prefHeight="200.0" prefWidth="710.0">
         <columns>
-          <TableColumn prefWidth="75.0" text="Service Id" />
-          <TableColumn prefWidth="75.0" text="Foods On" />
-            <TableColumn prefWidth="75.0" text="Bar On" />
-            <TableColumn prefWidth="115.0" text="Tronasport On" />
+          <TableColumn fx:id="colId" prefWidth="66.0" text="Service Id" />
+            <TableColumn fx:id="colName" prefWidth="132.0" text="Package Name" />
+          <TableColumn fx:id="colFood" prefWidth="68.0" text="Foods On" />
+            <TableColumn fx:id="colBar" prefWidth="59.0" text="Bar On" />
+            <TableColumn fx:id="colTransport" prefWidth="89.0" text="Tronasport On" />
+            <TableColumn fx:id="colPool" prefWidth="40.0" text="pool" />
+            <TableColumn fx:id="colPark" prefWidth="67.0" text="Kids Park" />
+            <TableColumn fx:id="colBeach" prefWidth="50.0" text="Beach" />
+            <TableColumn fx:id="colType" prefWidth="49.0" text="Type" />
+            <TableColumn fx:id="colPackPrice" prefWidth="89.0" text="Package Price" />
         </columns>
       </TableView>
-      <JFXToggleButton layoutX="14.0" layoutY="90.0" text="Foods On" />
-      <JFXToggleButton layoutX="14.0" layoutY="139.0" text="Bar On" />
-      <JFXToggleButton layoutX="184.0" layoutY="90.0" text="Transport On" />
+      <JFXCheckBox fx:id="cbxFood" checkedColor="#1782bf" layoutX="21.0" layoutY="113.0" text="Food On" />
+      <JFXCheckBox fx:id="cbxBar" checkedColor="#1782bf" layoutX="21.0" layoutY="141.0" text="Bar On" />
+      <JFXCheckBox fx:id="cbxTransport" checkedColor="#1782bf" layoutX="21.0" layoutY="169.0" text="Transport On" />
+      <JFXCheckBox fx:id="cbxPool" checkedColor="#1782bf" layoutX="21.0" layoutY="201.0" text="Pool" />
+      <JFXCheckBox fx:id="cbxPark" checkedColor="#1782bf" layoutX="149.0" layoutY="113.0" text="Kids Park" />
+      <JFXCheckBox fx:id="cbxBeach" checkedColor="#1782bf" layoutX="149.0" layoutY="141.0" text="Beach" />
+      <JFXComboBox fx:id="txtType" layoutX="343.0" layoutY="65.0" prefHeight="25.0" prefWidth="95.0" promptText="Type" />
+      <JFXTextField fx:id="txtName" layoutX="170.0" layoutY="65.0" promptText="Name" />
+      <JFXButton layoutX="416.0" layoutY="210.0" onAction="#deleteServicesOnAction" style="-fx-background-color: #1782bf;" text="Delete Service" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="274.0" layoutY="175.0" onAction="#changePriceOnAction" style="-fx-background-color: #1782bf;" text="Change Prices" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
