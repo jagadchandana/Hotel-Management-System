@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="385.0" prefWidth="425.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.ChangeServicesPriceFormController">
    <children>
       <Label layoutX="14.0" layoutY="7.0" text="Package Price Change" />
@@ -31,7 +30,7 @@
       <JFXTextField fx:id="txtClassB" labelFloat="true" layoutX="242.0" layoutY="181.0" promptText="Class B Price" />
       <JFXTextField fx:id="txtClassC" labelFloat="true" layoutX="243.0" layoutY="224.0" promptText="Class C Price" />
       <JFXTextField fx:id="txtNormal" labelFloat="true" layoutX="242.0" layoutY="266.0" promptText="Normal" />
-      <JFXButton layoutX="350.0" layoutY="359.0" onAction="#closeOnAction" text="Close" />
+      <JFXButton fx:id="btnClose" layoutX="350.0" layoutY="359.0" onAction="#closeOnAction" text="Close" />
       <JFXTextField fx:id="txtPermanent" labelFloat="true" layoutX="243.0" layoutY="303.0" promptText="Permenantly" />
    </children>
 </AnchorPane>
