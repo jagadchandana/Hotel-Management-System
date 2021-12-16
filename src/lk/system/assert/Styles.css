@@ -1,0 +1,22 @@
+.button{
+    -fx-background-color: #1782bf;
+    -fx-opacity: 0.9;
+
+}
+.button:hover{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-opacity: 1;
+}
+#btnUpdate:focused{
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-font-weight: 700;
+    -fx-border-color: white;
+    -fx-arrows-visible: true;
+}
+#ftitle, #title{
+    -fx-text-fill: blue;
+    -fx-font-weight: 700;
+}

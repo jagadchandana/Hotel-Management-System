@@ -4,15 +4,17 @@ public class RoomDTO {
     private String id;
     private String name;
     private String type;
+    private Double price;
     private String description;
 
     public RoomDTO() {
     }
 
-    public RoomDTO(String id, String name, String type, String description) {
+    public RoomDTO(String id, String name, String type, Double price, String description) {
         this.id = id;
         this.name = name;
         this.type = type;
+        this.price = price;
         this.description = description;
     }
 
@@ -40,6 +42,14 @@ public class RoomDTO {
         this.type = type;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -54,6 +64,7 @@ public class RoomDTO {
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
+                ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
     }

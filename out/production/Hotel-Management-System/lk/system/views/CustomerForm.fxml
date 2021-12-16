@@ -28,6 +28,11 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="410.0" layoutY="9.0" onAction="#billOnAction" prefHeight="25.0" prefWidth="106.0" style="-fx-background-color: white;" text="Genarate Bill" textFill="#1782bf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
       <JFXTextField fx:id="txtCustomerId" labelFloat="true" layoutX="22.0" layoutY="70.0" promptText="Customer Id" />
@@ -76,5 +81,6 @@
       <JFXTimePicker fx:id="tpOffTime" defaultColor="#1782bf" layoutX="603.0" layoutY="178.0" prefHeight="25.0" prefWidth="91.0" promptText="Out Time" />
       <JFXComboBox fx:id="cmbRoomId" labelFloat="true" layoutX="22.0" layoutY="178.0" prefHeight="25.0" prefWidth="91.0" promptText="Room Id" />
       <JFXComboBox fx:id="cmbServiceId" labelFloat="true" layoutX="136.0" layoutY="178.0" prefHeight="25.0" prefWidth="91.0" promptText="Services Id" />
+      <JFXButton fx:id="btnPerson" layoutX="225.0" layoutY="165.0" onAction="#otherPersonInfoOnAction" text="Persons" />
    </children>
 </AnchorPane>

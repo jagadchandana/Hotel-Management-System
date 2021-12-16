@@ -60,5 +60,10 @@
       </JFXButton>
       <JFXDatePicker fx:id="dpDOB" defaultColor="#1782bf" layoutX="326.0" layoutY="185.0" promptText="DOB" />
       <JFXDatePicker fx:id="dpSettleDate" defaultColor="#1782bf" layoutX="523.0" layoutY="185.0" promptText="Settle Date" />
+      <JFXButton fx:id="btnnewJob" buttonType="RAISED" layoutX="609.0" layoutY="237.0" onAction="#newJobOnAction" style="-fx-background-color: #1782bf;" text="new job" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

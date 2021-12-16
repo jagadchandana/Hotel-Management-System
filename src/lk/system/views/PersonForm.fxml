@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.PersonFormController">
+   <children>
+      <JFXComboBox fx:id="cmbId" labelFloat="true" layoutX="21.0" layoutY="23.0" prefHeight="25.0" prefWidth="119.0" promptText="Customer Id" />
+      <TextField fx:id="txtAdult" layoutX="21.0" layoutY="63.0" prefHeight="25.0" prefWidth="59.0" promptText="Adult" />
+      <TextField fx:id="txtKids" layoutX="103.0" layoutY="63.0" prefHeight="25.0" prefWidth="59.0" promptText="Kids" />
+      <JFXTextArea fx:id="txtPersonInfo" labelFloat="true" layoutX="21.0" layoutY="145.0" prefHeight="219.0" prefWidth="548.0" promptText="Persons Details as:-" />
+      <Label layoutX="126.0" layoutY="137.0" text="Name">
+         <font>
+            <Font name="Book Antiqua Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="198.0" layoutY="138.0" text="NIC">
+         <font>
+            <Font name="Book Antiqua Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="275.0" layoutY="138.0" text="Address">
+         <font>
+            <Font name="Book Antiqua Italic" size="11.0" />
+         </font>
+      </Label>
+      <Label layoutX="380.0" layoutY="137.0" text="Other">
+         <font>
+            <Font name="Book Antiqua Italic" size="11.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="223.0" layoutY="63.0" onAction="#saveOnAction" text="Save" />
+      <JFXButton layoutX="292.0" layoutY="63.0" onAction="#updateOnAction" text="Update" />
+      <JFXButton fx:id="btnClose" layoutX="514.0" layoutY="368.0" onAction="#closeOnAction" text="Close" />
+   </children>
+</AnchorPane>

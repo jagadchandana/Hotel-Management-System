@@ -7,11 +7,10 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="SaleryContext" prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.JobManageFormCobtroller">
+<AnchorPane fx:id="SaleryContext" prefHeight="491.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.JobManageFormController">
    <children>
       <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
          <children>
@@ -30,14 +29,13 @@
             </JFXButton>
          </children>
       </AnchorPane>
-      <ImageView fitHeight="562.0" fitWidth="723.0" layoutX="6.0" layoutY="38.0" pickOnBounds="true" />
       <JFXTextField fx:id="txtJobId" labelFloat="true" layoutX="14.0" layoutY="63.0" prefHeight="25.0" prefWidth="116.0" promptText="Job Id">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></JFXTextField>
-      <JFXTextField fx:id="txtHourRate" labelFloat="true" layoutX="14.0" layoutY="160.0" prefHeight="25.0" prefWidth="144.0" promptText="Hour Rate" />
-      <JFXTextField fx:id="txtMonthlyRate" labelFloat="true" layoutX="14.0" layoutY="213.0" prefHeight="25.0" prefWidth="116.0" promptText="Monthly Rate" />
-      <TableView fx:id="tblJob" cacheShape="false" layoutX="14.0" layoutY="271.0" prefHeight="200.0" prefWidth="715.0">
+      <JFXTextField fx:id="txtHourRate" labelFloat="true" layoutX="14.0" layoutY="145.0" prefHeight="25.0" prefWidth="144.0" promptText="Hour Rate" />
+      <JFXTextField fx:id="txtMonthlyRate" labelFloat="true" layoutX="14.0" layoutY="192.0" prefHeight="25.0" prefWidth="116.0" promptText="Monthly Rate" />
+      <TableView fx:id="tblJob" cacheShape="false" layoutX="14.0" layoutY="253.0" prefHeight="200.0" prefWidth="715.0">
         <columns>
           <TableColumn fx:id="colJobId" prefWidth="75.0" text="Job Id " />
           <TableColumn fx:id="colJobPosition" prefWidth="139.0" text="Job Position" />
@@ -48,7 +46,7 @@
         </columns>
       </TableView>
       <JFXTextArea fx:id="txtDescription" labelFloat="true" layoutX="177.0" layoutY="49.0" prefHeight="38.0" prefWidth="388.0" promptText="Description" />
-      <JFXButton buttonType="RAISED" layoutX="165.0" layoutY="226.0" onAction="#saveJobOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #1782bf;" text="Save Job" textFill="#f8f8f8">
+      <JFXButton fx:id="btnSave" buttonType="RAISED" layoutX="170.0" layoutY="192.0" onAction="#saveJobOnAction" prefHeight="25.0" prefWidth="116.0" style="-fx-background-color: #1782bf;" text="Save Job" textFill="#f8f8f8">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
@@ -56,6 +54,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <JFXTextField labelFloat="true" layoutX="14.0" layoutY="127.0" prefHeight="25.0" prefWidth="116.0" promptText="Job Position" />
+      <JFXTextField fx:id="txtJobPosition" labelFloat="true" layoutX="14.0" layoutY="109.0" prefHeight="25.0" prefWidth="116.0" promptText="Job Position" />
+      <JFXButton fx:id="btnClose" layoutX="628.0" layoutY="456.0" onAction="#exiteOnAction" prefHeight="25.0" prefWidth="56.0" text="Exit" />
    </children>
 </AnchorPane>

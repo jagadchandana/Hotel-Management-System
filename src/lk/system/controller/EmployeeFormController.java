@@ -7,13 +7,18 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
 import lk.system.dto.CustomerDTO;
 import lk.system.dto.EmployeeDTO;
 import lk.system.views.tm.EmployeeTM;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Optional;
@@ -39,6 +44,7 @@ public class EmployeeFormController {
     public JFXDatePicker dpDOB;
     public JFXDatePicker dpSettleDate;
     public TableColumn colsdate;
+
 
     public void initialize(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -187,4 +193,17 @@ public class EmployeeFormController {
         dpSettleDate.setValue(LocalDate.parse(tm.getSattleDate()));
     }
 
+    public void newJobOnAction(ActionEvent actionEvent){
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/JobManageForm.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent) fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Create New Job");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
 }

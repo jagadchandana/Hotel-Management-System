@@ -1,6 +1,6 @@
 package lk.system.dto;
 
-public class servicesDTO {
+public class ServicesDTO {
     private String id;
     private String name;
     private String type;
@@ -11,10 +11,10 @@ public class servicesDTO {
     private Double kidsPark;
     private Double beach;
 
-    public servicesDTO() {
+    public ServicesDTO() {
     }
 
-    public servicesDTO(String id, String name, String type, Double food, Double bar, Double transport, Double pool, Double kidsPark, Double beach) {
+    public ServicesDTO(String id, String name, String type, Double food, Double bar, Double transport, Double pool, Double kidsPark, Double beach) {
         this.id = id;
         this.name = name;
         this.type = type;

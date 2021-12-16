@@ -4,13 +4,18 @@ import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
 import lk.system.dto.CustomerDTO;
 import lk.system.views.tm.CustomerTM;
 import sun.util.resources.LocaleData;
 
+import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -60,7 +65,7 @@ public class CustomerFormController {
         colCusServiceId.setCellValueFactory(new PropertyValueFactory<>("serviceId"));
         colOnDate.setCellValueFactory(new PropertyValueFactory<>("onDate"));
 
-        loadAllRoom();
+        loadAllIds();
         loadAllCustomers("");
         tblCustomer.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue!=null){
@@ -181,6 +186,7 @@ public class CustomerFormController {
 
                 if (new DataBaseAccessCode().deleteCustomer(txtCustomerId.getText())){
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted", ButtonType.OK).show();
+                    clearField();
                     loadAllCustomers("");
                 } else{
                     new Alert(Alert.AlertType.WARNING, "Customr Delete Error", ButtonType.CANCEL).show();
@@ -193,6 +199,24 @@ public class CustomerFormController {
         }
 
         //---
+    }
+
+    public void otherPersonInfoOnAction(ActionEvent actionEvent) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/PersonForm.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent) fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Other Person");
+        stage.setScene(new Scene(root));
+        stage.show();
+    }
+
+    public void billOnAction(ActionEvent actionEvent) {
+
     }
 
     public void loadAllCustomers(String searchText) {
@@ -228,7 +252,7 @@ public class CustomerFormController {
         }
     }
     //load room-----------------
-    public void loadAllRoom(){
+    public void loadAllIds(){
         try {
             for (String tempid:new DataBaseAccessCode().loadAllRoomIds()
                  ) {
@@ -246,6 +270,10 @@ public class CustomerFormController {
             e.printStackTrace();
         }
     }
+
+
+
+
     //load room-----------------
 
 

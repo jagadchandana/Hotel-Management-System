@@ -12,6 +12,7 @@ import lk.system.dto.RoomDTO;
 import lk.system.views.tm.RoomTM;
 
 import java.sql.SQLException;
+import java.util.Optional;
 
 public class RoomFormController {
     public JFXTextField txtId;
@@ -25,33 +26,62 @@ public class RoomFormController {
     public JFXTextField txtDescription;
     public JFXButton btnSave;
     public JFXTextField txtRoomType;
+    public TextField txtSearch;
+    public JFXTextField txtPrice;
+    public TableColumn colPrice;
 
     public void initialize(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
         colName.setCellValueFactory(new PropertyValueFactory<>("name"));
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
-        colDescription.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
+        colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
+        colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colOption.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         loadAllRooms("");
+        txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
+            loadAllRooms(newValue);
+        });
+        tblRoom.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue!=null){
+                setData((RoomTM) newValue);
+            }
+        });
+    }
+
+    public void setData(RoomTM tm){
+        btnSave.setText("Update Room");
+        txtId.setText(tm.getId());
+        txtRoomName.setText(tm.getName());
+        txtRoomType.setText(tm.getType());
+        txtPrice.setText(String.valueOf(tm.getPrice()));
+        txtDescription.setText(tm.getDescription());
     }
 
     public void newRoomOnAction(ActionEvent actionEvent) {
         btnSave.setText("Save Room");
+        clearField();
+    }
+    public void clearField(){
         txtId.clear();
         txtRoomName.clear();
         txtRoomType.clear();
         txtDescription.clear();
+        txtPrice.clear();
     }
     public void SaveRoomOnAction(ActionEvent actionEvent) {
+        Double price= Double.valueOf(txtPrice.getText());
         if (btnSave.getText().equalsIgnoreCase("Save Room")) {
             RoomDTO dto = new RoomDTO(
                     txtId.getText(),
                     txtRoomName.getText(),
                     txtRoomType.getText(),
+                     price,
                     txtDescription.getText()
             );
             try {
                 if (new DataBaseAccessCode().saveRoom(dto)) {
                     new Alert(Alert.AlertType.INFORMATION, "Room Saved", ButtonType.OK).show();
+                    loadAllRooms("");
                 } else {
                     new Alert(Alert.AlertType.ERROR, "Room Nt Save", ButtonType.OK).show();
                 }
@@ -65,11 +95,13 @@ public class RoomFormController {
                     txtId.getText(),
                     txtRoomName.getText(),
                     txtRoomType.getText(),
+                   price,
                     txtDescription.getText()
             );
             try {
                 if (new DataBaseAccessCode().updateRoom(dto)){
                     new Alert(Alert.AlertType.INFORMATION,"Room Saved",ButtonType.OK).show();
+                    loadAllRooms("");
                 }else{
                     new Alert(Alert.AlertType.ERROR,"Room Save Error",ButtonType.OK).show();
                 }
@@ -90,11 +122,33 @@ public class RoomFormController {
                         tempdto.getId(),
                         tempdto.getName(),
                         tempdto.getType(),
+                        tempdto.getPrice(),
                         tempdto.getDescription(),
                         btn
                 );
                 obList.add(roomTM);
+                btn.setOnAction(event -> {
+                    Alert alert = new Alert(Alert.AlertType.CONFIRMATION, "Are you Shure?", ButtonType.YES, ButtonType.NO);
+                    Optional<ButtonType> confirmState = alert.showAndWait();
+                    if (confirmState.get().equals(ButtonType.YES)){
+                        try {
+                            if (new DataBaseAccessCode().deleteRoom(tempdto.getId())){
+                                new Alert(Alert.AlertType.INFORMATION,"Room Deleted",ButtonType.OK).show();
+                                loadAllRooms("");
+                                clearField();
+                            }else{
+                                new Alert(Alert.AlertType.ERROR,"Delete eroror",ButtonType.OK).show();
+                            }
+                        } catch (SQLException throwables) {
+                            throwables.printStackTrace();
+                        } catch (ClassNotFoundException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
             }
+            tblRoom.setItems(obList);
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {

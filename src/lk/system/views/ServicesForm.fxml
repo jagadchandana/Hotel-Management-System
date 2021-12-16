@@ -52,7 +52,7 @@
       <JFXCheckBox fx:id="cbxPool" checkedColor="#1782bf" layoutX="21.0" layoutY="201.0" text="Pool" />
       <JFXCheckBox fx:id="cbxPark" checkedColor="#1782bf" layoutX="149.0" layoutY="113.0" text="Kids Park" />
       <JFXCheckBox fx:id="cbxBeach" checkedColor="#1782bf" layoutX="149.0" layoutY="141.0" text="Beach" />
-      <JFXComboBox fx:id="txtType" layoutX="343.0" layoutY="65.0" prefHeight="25.0" prefWidth="95.0" promptText="Type" />
+      <JFXComboBox fx:id="cmbType" layoutX="343.0" layoutY="65.0" prefHeight="25.0" prefWidth="95.0" promptText="Type" />
       <JFXTextField fx:id="txtName" layoutX="170.0" layoutY="65.0" promptText="Name" />
       <JFXButton layoutX="416.0" layoutY="210.0" onAction="#deleteServicesOnAction" style="-fx-background-color: #1782bf;" text="Delete Service" textFill="WHITE">
          <font>
