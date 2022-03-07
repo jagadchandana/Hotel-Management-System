@@ -1,6 +1,6 @@
-package lk.system.dto;
+package lk.system.views.tm;
 
-public class ServicesDTO {
+public class ServicesTM {
     private String id;
     private String name;
     private String type;
@@ -12,10 +12,10 @@ public class ServicesDTO {
     private Double beach;
     private Double packagePrice;
 
-    public ServicesDTO() {
+    public ServicesTM() {
     }
 
-    public ServicesDTO(String id, String name, String type, Double food, Double bar, Double transport, Double pool, Double kidsPark, Double beach,Double packagePrice) {
+    public ServicesTM(String id, String name, String type, Double food, Double bar, Double transport, Double pool, Double kidsPark, Double beach, Double packagePrice) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -100,13 +100,17 @@ public class ServicesDTO {
         this.beach = beach;
     }
 
-    public Double getPackagePrice(){ return packagePrice;}
+    public Double getPackagePrice() {
+        return packagePrice;
+    }
 
-    public void setPackagePrice(Double packagePrice){this.packagePrice = packagePrice;}
+    public void setPackagePrice(Double packagePrice) {
+        this.packagePrice = packagePrice;
+    }
 
     @Override
     public String toString() {
-        return "servicesDTO{" +
+        return "ServicesTM{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
@@ -116,7 +120,7 @@ public class ServicesDTO {
                 ", pool=" + pool +
                 ", kidsPark=" + kidsPark +
                 ", beach=" + beach +
-                ", packagePrice" + packagePrice +
+                ", packagePrice=" + packagePrice +
                 '}';
     }
 }

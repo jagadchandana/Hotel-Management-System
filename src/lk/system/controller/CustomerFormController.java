@@ -123,11 +123,11 @@ public class CustomerFormController {
                  String contact=txtContactNum.getText();
                  String address=txtAddress.getText();
                  String roomId= String.valueOf(cmbRoomId.getSelectionModel().getSelectedItem());
-                 String serviceId= String.valueOf(cmbRoomId.getSelectionModel().getSelectedItem());
+                 String serviceId= String.valueOf(cmbServiceId.getSelectionModel().getSelectedItem());
                  String onDate= String.valueOf(dtonDate.getValue());
-                 String offDate= String.valueOf(dtonDate.getValue());
+                 String offDate= String.valueOf(dtoffDate.getValue());
                  String onTime= String.valueOf(tpOnTime.getValue());
-                 String offTime= String.valueOf(tpOnTime.getValue());
+                 String offTime= String.valueOf(tpOffTime.getValue());
 
                  CustomerDTO dto = new CustomerDTO(customerId,State,name,nic,contact,address,roomId,serviceId,onDate,offDate,onTime,offTime);
 
@@ -155,9 +155,9 @@ public class CustomerFormController {
                String servicesId= String.valueOf(cmbServiceId.getSelectionModel().getSelectedItem());
                String id=txtCustomerId.getText();
                String onDate= String.valueOf(dtonDate.getValue());
-               String offDate= String.valueOf(dtonDate.getValue());
+               String offDate= String.valueOf(dtoffDate.getValue());
                String onTime= String.valueOf(tpOnTime.getValue());
-               String offTime= String.valueOf(tpOnTime.getValue());
+               String offTime= String.valueOf(tpOffTime.getValue());
                CustomerDTO dto=new CustomerDTO(id,State,name,nic,address,contact,roomId,servicesId,onDate,offDate,onTime,offTime);
 
                 if (new DataBaseAccessCode().updateCustomer(dto)){
@@ -216,7 +216,17 @@ public class CustomerFormController {
     }
 
     public void billOnAction(ActionEvent actionEvent) {
-
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/BillGenerateForm.fxml"));
+        Parent root = null;
+        try {
+            root = (Parent) fxmlLoader.load();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Stage stage = new Stage();
+        stage.setTitle("Generate Bill");
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     public void loadAllCustomers(String searchText) {

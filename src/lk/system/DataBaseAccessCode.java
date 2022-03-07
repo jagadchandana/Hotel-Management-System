@@ -211,6 +211,22 @@ public class DataBaseAccessCode {
     public boolean deleteRoom(String id) throws SQLException, ClassNotFoundException {
         return DBConnection.getInstance().getConnection().prepareStatement("DELETE FROM room WHERE id='" + id + "'").executeUpdate() > 0;
     }
+    public RoomDTO getRoom(String id) throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT * FROM room WHERE id='"+id+"'";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+        ResultSet rst = stm.executeQuery();
+        if (rst.next()) {
+           return new RoomDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getDouble(4),
+                    rst.getString(5)
+            );
+        }else{
+            return null;
+        }
+    }
     public ArrayList<RoomDTO> getAllRoom(String text) throws SQLException, ClassNotFoundException {
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("SELECT * FROM room WHERE name LIKE ? OR type LIKE ? OR description LIKE ?");
         stm.setObject(1,text);
@@ -461,12 +477,11 @@ public class DataBaseAccessCode {
         }
     }
 
-    ///full Services
+    ///full Services-Package
 
-    public boolean saveServices(ServicesDTO dto) throws SQLException, ClassNotFoundException {
-        String SQL="INSERT INTO service VALUES (?,?,?,?,?,?,?,?,?)";
-        Connection connection = DBConnection.getInstance().getConnection();
-        PreparedStatement stm = connection.prepareStatement(SQL);
+    public boolean savePackage(ServicesDTO dto) throws SQLException, ClassNotFoundException {
+        String SQL = "INSERT INTO service VALUES(?,?,?,?,?,?,?,?,?,?)";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         stm.setObject(1,dto.getId());
         stm.setObject(2,dto.getName());
         stm.setObject(3,dto.getType());
@@ -476,33 +491,78 @@ public class DataBaseAccessCode {
         stm.setObject(7,dto.getPool());
         stm.setObject(8,dto.getKidsPark());
         stm.setObject(9,dto.getBeach());
-      //  stm.setObject(10,((dto.getBar()+ dto.getBeach())*));
-        switch (dto.getType()){
-            case  "Luxury":
-              //  Double x = connection.prepareStatement("SELECT luxury FROM cpackage WHERE id LIKE '" + 1 + "'").executeQuery();
+        stm.setObject(10,dto.getPackagePrice());
+        return stm.executeUpdate()>0;
+    }
+    public boolean updatePackage(ServicesDTO dto) throws SQLException, ClassNotFoundException {
+        String SQL = "UPDATE service SET name=?,type=?,food=?,bar=?,transport=?,pool=?,kidsPark=?,beach=?,packagePrice=? WHERE id=?";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+        stm.setObject(10,dto.getId());
+        stm.setObject(1,dto.getName());
+        stm.setObject(2,dto.getType());
+        stm.setObject(3,dto.getFood());
+        stm.setObject(4,dto.getBar());
+        stm.setObject(5,dto.getTransport());
+        stm.setObject(6,dto.getPool());
+        stm.setObject(7,dto.getKidsPark());
+        stm.setObject(8,dto.getBeach());
+        stm.setObject(9,dto.getPackagePrice());
+        return stm.executeUpdate()>0;
+    }
+    public boolean deletePackage(String id) throws SQLException, ClassNotFoundException {
+        String SQL="DELETE FROM service WHERE id='"+id+"'";
+        return DBConnection.getInstance().getConnection().prepareStatement(SQL).executeUpdate()>0;
+    }
+    public ServicesDTO getService(String id) throws SQLException, ClassNotFoundException {
+        String SQL = "SELECT * FROM service WHERE id=id";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+        ResultSet rst = stm.executeQuery();
+        ServicesDTO dto = new ServicesDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getDouble(4),
+                    rst.getDouble(5),
+                    rst.getDouble(6),
+                    rst.getDouble(7),
+                    rst.getDouble(8),
+                    rst.getDouble(9),
+                    rst.getDouble(10)
+            );
 
-                break;
-            case "":
+
+        return dto;
+    }
+    public ArrayList<ServicesDTO> getAllServices(String text) throws SQLException, ClassNotFoundException {
+        String SQL="SELECT * FROM service WHERE id like ? OR name LIKE ?";
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
+        stm.setObject(1,text);
+        stm.setObject(2,text);
+        ResultSet rst = stm.executeQuery();
+        ArrayList<ServicesDTO> dtoList = new ArrayList<>();
+        while (rst.next()){
+            ServicesDTO dto = new ServicesDTO(
+                    rst.getString(1),
+                    rst.getString(2),
+                    rst.getString(3),
+                    rst.getDouble(4),
+                    rst.getDouble(5),
+                    rst.getDouble(6),
+                    rst.getDouble(7),
+                    rst.getDouble(8),
+                    rst.getDouble(9),
+                    rst.getDouble(10)
+            );
+            dtoList.add(dto);
         }
-        return true;
+        return dtoList;
     }
-    public double[] getPrices() throws SQLException, ClassNotFoundException {
-        Connection connection = DBConnection.getInstance().getConnection();
-        double[] values=new double[6];
-        int i = connection.prepareStatement("SELECT foodPrice FROM spackage WHERE id='" + 1 + "'").executeUpdate();
-        System.out.println(i);
-        values[1]=connection.prepareStatement("SELECT barPrice FROM spackage WHERE id='"+1+"'").executeUpdate();
-        values[2]=connection.prepareStatement("SELECT transportPrice FROM spackage WHERE id='"+1+"'").executeUpdate();
-        values[3]=connection.prepareStatement("SELECT poolPrice FROM spackage WHERE id='"+1+"'").executeUpdate();
-        values[4]=connection.prepareStatement("SELECT kidsPrice FROM spackage WHERE id='"+1+"'").executeUpdate();
-        values[5]=connection.prepareStatement("SELECT beachPrice FROM spackage WHERE id='"+1+"'").executeUpdate();
-        return values;
-    }
+    //
 
     ///Person Details
 
     public boolean savePDetails(PersonalDetailsDTO dto) throws SQLException, ClassNotFoundException {
-        String SQL="INSERR INTO persondetails VALUES(?,?,?,?)";
+        String SQL="INSERT INTO persondetails VALUES(?,?,?,?)";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         stm.setObject(1,dto.getId());
         stm.setObject(2,dto.getNumOfAdult());
@@ -511,7 +571,7 @@ public class DataBaseAccessCode {
         return stm.executeUpdate()>0;
     }
     public boolean updatePDetails(PersonalDetailsDTO dto) throws SQLException, ClassNotFoundException {
-        String SQL="UPDATE persondetails SET id=?,numOfAdult=?,numOfKids=?,details=? WHERE id=?";
+        String SQL="UPDATE persondetails SET numOfAdult=?,numOfKids=?,details=? WHERE id=?";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         stm.setObject(4,dto.getId());
         stm.setObject(1,dto.getNumOfAdult());
@@ -527,23 +587,21 @@ public class DataBaseAccessCode {
         }
         return idset;
     }
-    public ArrayList<PersonalDetailsDTO>getAllDetails(String text) throws SQLException, ClassNotFoundException {
-        String SQL="SELECT * FROM persondetails where id lIKE '"+text+"'";
+    public PersonalDetailsDTO getAllDetails(String text) throws SQLException, ClassNotFoundException {
+        String SQL="SELECT * FROM persondetails WHERE id LIKE '"+text+"'";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
-        stm.setObject(1,text);
         ResultSet rst = stm.executeQuery();
-        ArrayList<PersonalDetailsDTO> dtoList = new ArrayList<>();
-        while (rst.next()){
-            PersonalDetailsDTO dto = new PersonalDetailsDTO(
+        if (rst.next()) {
+            return new PersonalDetailsDTO(
                     rst.getString(1),
                     rst.getInt(2),
                     rst.getInt(3),
                     rst.getString(4)
 
             );
-            dtoList.add(dto);
+        }else {
+            return null;
         }
-        return dtoList;
     }
 }
 
