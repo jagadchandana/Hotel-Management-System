@@ -29,6 +29,8 @@ public class RoomFormController {
     public TextField txtSearch;
     public JFXTextField txtPrice;
     public TableColumn colPrice;
+    public TableColumn colQty;
+    public TextField txtQty;
 
     public void initialize(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -36,6 +38,7 @@ public class RoomFormController {
         colType.setCellValueFactory(new PropertyValueFactory<>("type"));
         colDescription.setCellValueFactory(new PropertyValueFactory<>("description"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
+        colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btnDelete"));
         loadAllRooms("");
         txtSearch.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -54,6 +57,7 @@ public class RoomFormController {
         txtRoomName.setText(tm.getName());
         txtRoomType.setText(tm.getType());
         txtPrice.setText(String.valueOf(tm.getPrice()));
+        txtQty.setText(String.valueOf(tm.getQty()));
         txtDescription.setText(tm.getDescription());
     }
 
@@ -67,15 +71,18 @@ public class RoomFormController {
         txtRoomType.clear();
         txtDescription.clear();
         txtPrice.clear();
+        txtQty.clear();
     }
     public void SaveRoomOnAction(ActionEvent actionEvent) {
         Double price= Double.valueOf(txtPrice.getText());
+        int qty = Integer.parseInt(txtQty.getText());
         if (btnSave.getText().equalsIgnoreCase("Save Room")) {
             RoomDTO dto = new RoomDTO(
                     txtId.getText(),
                     txtRoomName.getText(),
                     txtRoomType.getText(),
                      price,
+                    qty,
                     txtDescription.getText()
             );
             try {
@@ -96,6 +103,7 @@ public class RoomFormController {
                     txtRoomName.getText(),
                     txtRoomType.getText(),
                    price,
+                    qty,
                     txtDescription.getText()
             );
             try {
@@ -123,6 +131,7 @@ public class RoomFormController {
                         tempdto.getName(),
                         tempdto.getType(),
                         tempdto.getPrice(),
+                        tempdto.getQty(),
                         tempdto.getDescription(),
                         btn
                 );

@@ -24,6 +24,7 @@ public class PersonFormController {
     public JFXTextArea txtPersonInfo;
     public JFXButton btnClose;
     public JFXButton btnSave;
+    public TextField txtQty;
 
     public void initialize(){
         loadAllIds();
@@ -43,6 +44,7 @@ public class PersonFormController {
                 btnSave.setText("Update Info.");
                 txtAdult.setText(String.valueOf(dto.getNumOfAdult()));
                 txtKids.setText(String.valueOf(dto.getNumOfKids()));
+                txtQty.setText(String.valueOf(dto.getRoomQty()));
                 txtPersonInfo.setText(dto.getDetails());
             }else{
                 btnSave.setText("Save Info.");
@@ -69,6 +71,7 @@ public class PersonFormController {
                 (String) cmbId.getSelectionModel().getSelectedItem(),
                 Integer.valueOf(txtAdult.getText()),
                 Integer.valueOf(txtKids.getText()),
+                Integer.valueOf(txtQty.getText()),
                 txtPersonInfo.getText()
         );
         if (btnSave.getText().equalsIgnoreCase("Save info.")){

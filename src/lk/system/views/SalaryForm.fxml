@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.SalaryFormController">
+   <children>
+      <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
+         <children>
+            <Label layoutX="14.0" layoutY="9.0" text="Salary Management" textFill="#fcfcfc">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="596.0" layoutY="8.0" onAction="#printPaySheetOnAction" style="-fx-background-color: white;" text="Print PaySheet" textFill="#1782bf">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <JFXTextField fx:id="txtId" labelFloat="true" layoutX="275.0" layoutY="98.0" promptText="Employee Id" />
+      <JFXButton buttonType="RAISED" layoutX="355.0" layoutY="247.0" onAction="#showPaySheetOnAction" style="-fx-background-color: #1782bf;" text="Show PaySheet" textFill="#ebe9e9">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea layoutX="21.0" layoutY="76.0" prefHeight="502.0" prefWidth="224.0" promptText="PaySheet..." />
+      <TextField layoutX="281.0" layoutY="139.0" prefHeight="25.0" prefWidth="99.0" promptText="OT hours" />
+      <TextField layoutX="281.0" layoutY="179.0" prefHeight="25.0" prefWidth="99.0" promptText="kk" />
+   </children>
+</AnchorPane>

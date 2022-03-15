@@ -4,17 +4,24 @@ import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
 import lk.system.dto.CustomerDTO;
 import lk.system.views.tm.CustomerTM;
 import sun.util.resources.LocaleData;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDate;
@@ -52,6 +59,7 @@ public class CustomerFormController {
     public JFXComboBox cmbServiceId;
     public TableColumn colOnDate;
     public TableColumn colState;
+
 
 
     public void initialize(){

@@ -191,21 +191,23 @@ public class DataBaseAccessCode {
     //////
     /////////Room
     public boolean saveRoom(RoomDTO dto) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO room VALUES(?,?,?,?,?)");
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO room VALUES(?,?,?,?,?,?)");
         stm.setObject(1,dto.getId());
         stm.setObject(2,dto.getName());
         stm.setObject(3,dto.getType());
         stm.setObject(4,dto.getPrice());
-        stm.setObject(5,dto.getDescription());
+        stm.setObject(5,dto.getQty());
+        stm.setObject(6,dto.getDescription());
         return stm.executeUpdate() > 0;
     }
     public boolean updateRoom(RoomDTO dto) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("UPDATE room SET name=?,type=?,price=?,description=? WHERE id=?");
-        stm.setObject(5,dto.getId());
+        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("UPDATE room SET name=?,type=?,price=?,qty=? ,description=? WHERE id=?");
+        stm.setObject(6,dto.getId());
         stm.setObject(1,dto.getName());
         stm.setObject(2,dto.getType());
         stm.setObject(3,dto.getPrice());
-        stm.setObject(4,dto.getDescription());
+        stm.setObject(4,dto.getQty());
+        stm.setObject(5,dto.getDescription());
         return stm.executeUpdate()>0;
     }
     public boolean deleteRoom(String id) throws SQLException, ClassNotFoundException {
@@ -221,7 +223,8 @@ public class DataBaseAccessCode {
                     rst.getString(2),
                     rst.getString(3),
                     rst.getDouble(4),
-                    rst.getString(5)
+                    rst.getInt(5),
+                    rst.getString(6)
             );
         }else{
             return null;
@@ -240,7 +243,8 @@ public class DataBaseAccessCode {
                 rst.getString(2),
                 rst.getString(3),
                 rst.getDouble(4),
-                rst.getString(5)
+                rst.getInt(5),
+                rst.getString(6)
             );
             dtoList.add(dto);
         }
@@ -514,10 +518,11 @@ public class DataBaseAccessCode {
         return DBConnection.getInstance().getConnection().prepareStatement(SQL).executeUpdate()>0;
     }
     public ServicesDTO getService(String id) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT * FROM service WHERE id=id";
+        String SQL = "SELECT * FROM service WHERE id='"+id+"'";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         ResultSet rst = stm.executeQuery();
-        ServicesDTO dto = new ServicesDTO(
+        if(rst.next()) {
+           return new ServicesDTO(
                     rst.getString(1),
                     rst.getString(2),
                     rst.getString(3),
@@ -530,8 +535,9 @@ public class DataBaseAccessCode {
                     rst.getDouble(10)
             );
 
-
-        return dto;
+        }else{
+            return null;
+        }
     }
     public ArrayList<ServicesDTO> getAllServices(String text) throws SQLException, ClassNotFoundException {
         String SQL="SELECT * FROM service WHERE id like ? OR name LIKE ?";
@@ -562,21 +568,23 @@ public class DataBaseAccessCode {
     ///Person Details
 
     public boolean savePDetails(PersonalDetailsDTO dto) throws SQLException, ClassNotFoundException {
-        String SQL="INSERT INTO persondetails VALUES(?,?,?,?)";
+        String SQL="INSERT INTO persondetails VALUES(?,?,?,?,?)";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         stm.setObject(1,dto.getId());
         stm.setObject(2,dto.getNumOfAdult());
         stm.setObject(3,dto.getNumOfKids());
-        stm.setObject(4,dto.getDetails());
+        stm.setObject(4,dto.getRoomQty());
+        stm.setObject(5,dto.getDetails());
         return stm.executeUpdate()>0;
     }
     public boolean updatePDetails(PersonalDetailsDTO dto) throws SQLException, ClassNotFoundException {
-        String SQL="UPDATE persondetails SET numOfAdult=?,numOfKids=?,details=? WHERE id=?";
+        String SQL="UPDATE persondetails SET numOfAdult=?,numOfKids=?,qty=?,details=? WHERE id=?";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
-        stm.setObject(4,dto.getId());
+        stm.setObject(5,dto.getId());
         stm.setObject(1,dto.getNumOfAdult());
         stm.setObject(2,dto.getNumOfKids());
-        stm.setObject(3,dto.getDetails());
+        stm.setObject(3,dto.getRoomQty());
+        stm.setObject(4,dto.getDetails());
         return stm.executeUpdate()>0;
     }
     public ArrayList<String>getAllCustomerIds() throws SQLException, ClassNotFoundException {
@@ -596,7 +604,8 @@ public class DataBaseAccessCode {
                     rst.getString(1),
                     rst.getInt(2),
                     rst.getInt(3),
-                    rst.getString(4)
+                    rst.getInt(4),
+                    rst.getString(5)
 
             );
         }else {

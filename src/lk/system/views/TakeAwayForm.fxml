@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="560.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.TakeAwayFormController">
+   <children>
+      <Pane prefHeight="33.0" prefWidth="900.0" style="-fx-background-color: green;">
+         <children>
+            <Label layoutX="14.0" layoutY="6.0" text="Take Away" textFill="#ebebeb">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="815.0" layoutY="1.0" onAction="#newItemOnAction" text="New Item" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </Pane>
+      <JFXComboBox fx:id="cmbItemName" labelFloat="true" layoutX="291.0" layoutY="56.0" prefHeight="25.0" prefWidth="220.0" promptText="Name" />
+      <TextField fx:id="txtUnitPrice" layoutX="540.0" layoutY="56.0" promptText="Unit Price LKR" />
+      <TextField fx:id="txtQty" layoutX="715.0" layoutY="56.0" prefHeight="25.0" prefWidth="103.0" promptText="Quntity" />
+      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="107.0" onAction="#showBillOnAction" text="Show Bill">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea fx:id="txtDetails" editable="false" labelFloat="true" layoutX="27.0" layoutY="56.0" prefHeight="482.0" prefWidth="209.0">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <cursor>
+            <Cursor fx:constant="DISAPPEAR" />
+         </cursor>
+      </JFXTextArea>
+      <JFXButton buttonType="RAISED" layoutX="735.0" layoutY="107.0" onAction="#printBillOnAction" text="Print Bill">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="804.0" layoutY="107.0" text="Print Bill">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <TableView fx:id="tblDetails" layoutX="295.0" layoutY="168.0" prefHeight="367.0" prefWidth="587.0">
+        <columns>
+          <TableColumn fx:id="colName" prefWidth="162.0" text="Name" />
+          <TableColumn fx:id="colUnitPrice" prefWidth="138.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="61.0" text="Quntity" />
+            <TableColumn fx:id="colPrice" prefWidth="97.0" text="Price" />
+            <TableColumn fx:id="colOption" prefWidth="127.0" text="Option" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtCash" layoutX="540.0" layoutY="105.0" prefHeight="25.0" prefWidth="116.0" promptText="Cash LKR" />
+   </children>
+</AnchorPane>

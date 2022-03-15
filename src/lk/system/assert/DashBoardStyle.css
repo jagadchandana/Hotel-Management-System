@@ -1,0 +1,10 @@
+.menuItem:hover{
+    -fx-background-color: red;
+    -fx-border-color: #660899;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.slideBarItem:hover{
+    -fx-background-color: #146886;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 0px 3px;
+}

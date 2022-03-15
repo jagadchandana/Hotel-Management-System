@@ -2,13 +2,17 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
-
 
 <AnchorPane fx:id="LoginFormContext" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.LoginFormController">
    <children>
@@ -18,20 +22,9 @@
          </font>
       </Label>
       <Separator layoutX="51.0" layoutY="19.0" prefHeight="25.0" prefWidth="273.0" />
-      <JFXTextField focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="60.0" prefHeight="25.0" prefWidth="302.0" promptText="User Id" unFocusColor="#4059a9" />
-      <JFXPasswordField focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="117.0" prefHeight="25.0" prefWidth="302.0" promptText="Password" unFocusColor="#4059a9" />
-      <JFXButton buttonType="RAISED" layoutX="18.0" layoutY="175.0" onAction="#LoginOnAction" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: #1782bf;" text="Let's Go" textFill="WHITE">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </JFXButton>
-      <Label layoutX="155.0" layoutY="220.0" text="OR" />
-      <Separator layoutX="27.0" layoutY="227.0" prefHeight="3.0" prefWidth="113.0" />
-      <Separator layoutX="187.0" layoutY="226.0" prefHeight="2.0" prefWidth="122.0" />
-      <JFXButton buttonType="RAISED" layoutX="18.0" layoutY="252.0" onAction="#PreSignUpOnAction" prefHeight="25.0" prefWidth="302.0" style="-fx-background-color: #1782bf;" text="Sign Up" textFill="WHITE">
+      <JFXTextField fx:id="txtId" focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="60.0" prefHeight="25.0" prefWidth="255.0" promptText="User Id" unFocusColor="#4059a9" />
+      <JFXPasswordField fx:id="txtPasword" focusColor="#1782bf" labelFloat="true" layoutX="22.0" layoutY="117.0" prefHeight="25.0" prefWidth="255.0" promptText="Password" unFocusColor="#4059a9" />
+      <JFXButton buttonType="RAISED" layoutX="18.0" layoutY="201.0" onAction="#LoginOnAction" prefHeight="25.0" prefWidth="255.0" style="-fx-background-color: #1782bf;" text="Login" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
@@ -40,5 +33,29 @@
          </cursor>
       </JFXButton>
       <Separator layoutX="332.0" layoutY="4.0" orientation="VERTICAL" prefHeight="383.0" prefWidth="4.0" />
+      <Label fx:id="lblInvalid" layoutX="22.0" layoutY="150.0" prefHeight="17.0" prefWidth="302.0" />
+      <Label fx:id="txtQuate" layoutX="348.0" layoutY="20.0" prefHeight="89.0" prefWidth="240.0" style="-fx-border-color: blue; -fx-border-radius: 20;">
+         <font>
+            <Font name="System Bold Italic" size="13.0" />
+         </font>
+      </Label>
+      <Label fx:id="lblFor" layoutX="24.0" layoutY="160.0" text="Forget User Details?">
+         <font>
+            <Font name="System Italic" size="13.0" />
+         </font>
+         <graphic>
+            <FontAwesomeIconView glyphName="dot" />
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Label>
+      <JFXProgressBar fx:id="pBar" layoutX="28.0" layoutY="283.0" prefHeight="3.0" prefWidth="240.0" />
+      <ProgressIndicator fx:id="pCircle" layoutX="123.0" layoutY="325.0" progress="0.0" />
+      <StackPane layoutX="348.0" layoutY="151.0" prefHeight="150.0" prefWidth="200.0">
+         <children>
+            <Button mnemonicParsing="false" text="Button" />
+         </children>
+      </StackPane>
    </children>
 </AnchorPane>

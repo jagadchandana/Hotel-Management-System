@@ -7,17 +7,19 @@ public class RoomTM {
     private String name;
     private String type;
     private Double price;
+    private int qty;
     private String description;
     private Button btnDelete;
 
     public RoomTM() {
     }
 
-    public RoomTM(String id, String name, String type, Double price, String description, Button btnDelete) {
+    public RoomTM(String id, String name, String type, Double price, int qty, String description, Button btnDelete) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
+        this.qty = qty;
         this.description = description;
         this.btnDelete = btnDelete;
     }
@@ -54,6 +56,10 @@ public class RoomTM {
         this.price = price;
     }
 
+    public int getQty(){ return qty;}
+
+    public void setQty(){this.qty = qty;}
+
     public String getDescription() {
         return description;
     }
@@ -77,6 +83,7 @@ public class RoomTM {
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
+                ", qty=" + qty +
                 ", description='" + description + '\'' +
                 ", btnDelete=" + btnDelete +
                 '}';

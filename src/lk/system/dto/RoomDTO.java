@@ -5,16 +5,18 @@ public class RoomDTO {
     private String name;
     private String type;
     private Double price;
+    private Integer qty;
     private String description;
 
     public RoomDTO() {
     }
 
-    public RoomDTO(String id, String name, String type, Double price, String description) {
+    public RoomDTO(String id, String name, String type, Double price, Integer qty, String description) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
+        this.qty = qty;
         this.description = description;
     }
 
@@ -50,6 +52,10 @@ public class RoomDTO {
         this.price = price;
     }
 
+    public Integer getQty(){ return qty; }
+
+    public void setQty(int qty){ this.qty = qty; }
+
     public String getDescription() {
         return description;
     }
@@ -65,6 +71,7 @@ public class RoomDTO {
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
                 ", price=" + price +
+                ", qty=" + qty + '\''+
                 ", description='" + description + '\'' +
                 '}';
     }

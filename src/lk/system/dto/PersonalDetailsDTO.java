@@ -4,15 +4,17 @@ public class PersonalDetailsDTO {
     private String id;
     private int numOfAdult;
     private int numOfKids;
+    private Integer roomQty;
     private String details;
 
     public PersonalDetailsDTO() {
     }
 
-    public PersonalDetailsDTO(String id, int numOfAdult, int numOfKids, String details) {
+    public PersonalDetailsDTO(String id, int numOfAdult, int numOfKids, int roomQty, String details) {
         this.id = id;
         this.numOfAdult = numOfAdult;
         this.numOfKids = numOfKids;
+        this.roomQty = roomQty;
         this.details = details;
     }
 
@@ -40,6 +42,10 @@ public class PersonalDetailsDTO {
         this.numOfKids = numOfKids;
     }
 
+    public int getRoomQty(){ return roomQty; }
+
+    public void setRoomQty(int roomQty){this.roomQty = roomQty;}
+
     public String getDetails() {
         return details;
     }
@@ -54,6 +60,7 @@ public class PersonalDetailsDTO {
                 "id='" + id + '\'' +
                 ", numOfAdult=" + numOfAdult +
                 ", numOfKids=" + numOfKids +
+                ", roomQty=" + roomQty +
                 ", details='" + details + '\'' +
                 '}';
     }
