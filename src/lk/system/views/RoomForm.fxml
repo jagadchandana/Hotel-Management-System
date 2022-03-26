@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.RoomFormController">
+<AnchorPane layoutX="170.0" prefHeight="547.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.RoomFormController">
    <children>
       <AnchorPane prefHeight="38.0" prefWidth="729.0" style="-fx-background-color: #1782bf;">
          <children>
@@ -31,15 +31,15 @@
       </AnchorPane>
       <JFXTextField fx:id="txtId" labelFloat="true" layoutX="14.0" layoutY="61.0" promptText="Room Id" />
       <JFXTextField fx:id="txtRoomName" labelFloat="true" layoutX="14.0" layoutY="107.0" promptText="Room Name" />
-      <TableView fx:id="tblRoom" layoutX="14.0" layoutY="214.0">
+      <TableView fx:id="tblRoom" layoutX="10.0" layoutY="214.0" prefHeight="210.0" prefWidth="717.0">
         <columns>
           <TableColumn fx:id="colId" prefWidth="75.0" text="Room Id" />
           <TableColumn fx:id="colName" prefWidth="160.00001525878906" text="Room Name" />
             <TableColumn fx:id="colType" prefWidth="131.0" text="Type" />
             <TableColumn fx:id="colPrice" prefWidth="77.0" text="Price" />
             <TableColumn fx:id="colQty" prefWidth="71.0" text="Qty." />
-            <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="129.0" text="Description" />
-            <TableColumn fx:id="colOption" prefWidth="109.0" text="Option" />
+            <TableColumn fx:id="colDescription" minWidth="0.0" prefWidth="97.0" text="Description" />
+            <TableColumn fx:id="colOption" maxWidth="100.0" prefWidth="141.0" text="Option" />
         </columns>
       </TableView>
       <JFXTextField fx:id="txtDescription" labelFloat="true" layoutX="207.0" layoutY="74.0" prefHeight="25.0" prefWidth="369.0" promptText="Description" />

@@ -8,6 +8,8 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import lk.system.DataBaseAccessCode;
+import lk.system.bo.custom.RoomBO;
+import lk.system.bo.custom.impl.RoomBoImpl;
 import lk.system.dto.RoomDTO;
 import lk.system.views.tm.RoomTM;
 
@@ -31,6 +33,8 @@ public class RoomFormController {
     public TableColumn colPrice;
     public TableColumn colQty;
     public TextField txtQty;
+
+    RoomBO bo = new RoomBoImpl();
 
     public void initialize(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -86,7 +90,7 @@ public class RoomFormController {
                     txtDescription.getText()
             );
             try {
-                if (new DataBaseAccessCode().saveRoom(dto)) {
+                if (bo.saveRoom(dto)) {
                     new Alert(Alert.AlertType.INFORMATION, "Room Saved", ButtonType.OK).show();
                     loadAllRooms("");
                 } else {
@@ -107,7 +111,7 @@ public class RoomFormController {
                     txtDescription.getText()
             );
             try {
-                if (new DataBaseAccessCode().updateRoom(dto)){
+                if (bo.updateRoom(dto)){
                     new Alert(Alert.AlertType.INFORMATION,"Room Saved",ButtonType.OK).show();
                     loadAllRooms("");
                 }else{
@@ -123,7 +127,7 @@ public class RoomFormController {
     public void loadAllRooms(String text){
         ObservableList<RoomTM> obList = FXCollections.observableArrayList();
         try {
-            for (RoomDTO tempdto:new DataBaseAccessCode().getAllRoom("%"+text+"%")
+            for (RoomDTO tempdto:bo.getAllRoom("%"+text+"%")
                  ) {
                 Button btn = new Button("Delete");
                 RoomTM roomTM = new RoomTM(
@@ -141,7 +145,7 @@ public class RoomFormController {
                     Optional<ButtonType> confirmState = alert.showAndWait();
                     if (confirmState.get().equals(ButtonType.YES)){
                         try {
-                            if (new DataBaseAccessCode().deleteRoom(tempdto.getId())){
+                            if (bo.deleteRoom(tempdto.getId())){
                                 new Alert(Alert.AlertType.INFORMATION,"Room Deleted",ButtonType.OK).show();
                                 loadAllRooms("");
                                 clearField();

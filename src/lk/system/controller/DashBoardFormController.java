@@ -10,9 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -25,10 +23,10 @@ import java.util.ResourceBundle;
 
 public class DashBoardFormController implements Initializable {
 
-    public AnchorPane DashBoardContextMenu;
     public Label lblDate;
     public Label lblTime;
     public AnchorPane topBarUi;
+    public AnchorPane DashBoardUi;
 
     @FXML
         private ImageView btnClose;
@@ -40,7 +38,7 @@ public class DashBoardFormController implements Initializable {
         private Label lblMenuBack;
 
         @FXML
-        private AnchorPane slider;
+        private VBox slider;
 
 
 
@@ -94,12 +92,12 @@ public class DashBoardFormController implements Initializable {
         });
 
 
-        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        /*DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date date = new Date();
         lblDate.setText(dateFormat.format(date));
         DateFormat timeformat = new SimpleDateFormat("HH:mm");
         Date time = new Date();
-        lblTime.setText(timeformat.format(time));
+        lblTime.setText(timeformat.format(time));*/
 
 
     }
@@ -122,15 +120,15 @@ public class DashBoardFormController implements Initializable {
 
 
     private void setUi(String location) throws IOException {
-        topBarUi.getChildren().clear();
-        DashBoardContextMenu.getChildren().clear();
-        DashBoardContextMenu.getChildren().add(FXMLLoader.load(getClass().getResource("../views/"+location+".fxml")));
+        DashBoardUi.getChildren().clear();
+      //  DashBoardContextMenu.getChildren().clear();
+        DashBoardUi.getChildren().add(FXMLLoader.load(getClass().getResource("../views/"+location+".fxml")));
 
     }
     private void setTopUi(String location) throws IOException {
-        topBarUi.getChildren().clear();
-        DashBoardContextMenu.getChildren().clear();
-        topBarUi.getChildren().add(FXMLLoader.load(getClass().getResource("../views/"+location+".fxml")));
+        DashBoardUi.getChildren().clear();
+      //  DashBoardContextMenu.getChildren().clear();
+        DashBoardUi.getChildren().add(FXMLLoader.load(getClass().getResource("../views/"+location+".fxml")));
         menuBack();
     }
 

@@ -1,7 +1,11 @@
 package lk.system;
 
+import lk.system.dao.DaoFactory;
+import lk.system.dao.custom.RoomDAO;
+import lk.system.dao.custom.impl.RoomDaoImpl;
 import lk.system.db.DBConnection;
 import lk.system.dto.*;
+import lk.system.entity.Room;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -188,33 +192,49 @@ public class DataBaseAccessCode {
         }
         return jobSet;
     }
-    //////
-    /////////Room
+
+
+
+    /////////Room======================
+RoomDAO roomDAO = DaoFactory.getInstance().getDao(DaoFactory.DaoType.ROOM);
+
     public boolean saveRoom(RoomDTO dto) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO room VALUES(?,?,?,?,?,?)");
+       /* PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("INSERT INTO room VALUES(?,?,?,?,?,?)");
         stm.setObject(1,dto.getId());
         stm.setObject(2,dto.getName());
         stm.setObject(3,dto.getType());
         stm.setObject(4,dto.getPrice());
         stm.setObject(5,dto.getQty());
         stm.setObject(6,dto.getDescription());
-        return stm.executeUpdate() > 0;
+        return stm.executeUpdate() > 0;*/
+
+        return roomDAO.save(
+                new Room(dto.getId(),dto.getName(),dto.getType(),dto.getPrice(),
+                        dto.getQty(),dto.getDescription())
+        );
     }
     public boolean updateRoom(RoomDTO dto) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("UPDATE room SET name=?,type=?,price=?,qty=? ,description=? WHERE id=?");
+        /*PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("UPDATE room SET name=?,type=?,price=?,qty=? ,description=? WHERE id=?");
         stm.setObject(6,dto.getId());
         stm.setObject(1,dto.getName());
         stm.setObject(2,dto.getType());
         stm.setObject(3,dto.getPrice());
         stm.setObject(4,dto.getQty());
         stm.setObject(5,dto.getDescription());
-        return stm.executeUpdate()>0;
+        return stm.executeUpdate()>0;*/
+
+        return  roomDAO.update(
+                new Room(dto.getId(),dto.getName(),dto.getType(),dto.getPrice(),
+                        dto.getQty(),dto.getDescription())
+        );
     }
     public boolean deleteRoom(String id) throws SQLException, ClassNotFoundException {
-        return DBConnection.getInstance().getConnection().prepareStatement("DELETE FROM room WHERE id='" + id + "'").executeUpdate() > 0;
+        //return DBConnection.getInstance().getConnection().prepareStatement("DELETE FROM room WHERE id='" + id + "'").executeUpdate() > 0;
+
+        return roomDAO.delete(id);
     }
     public RoomDTO getRoom(String id) throws SQLException, ClassNotFoundException {
-        String SQL = "SELECT * FROM room WHERE id='"+id+"'";
+        /*String SQL = "SELECT * FROM room WHERE id='"+id+"'";
         PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement(SQL);
         ResultSet rst = stm.executeQuery();
         if (rst.next()) {
@@ -228,10 +248,18 @@ public class DataBaseAccessCode {
             );
         }else{
             return null;
+        }*/
+
+        Room r = roomDAO.get(id);
+        if (r!=null){
+            return new RoomDTO(
+                    r.getId(),r.getName(),r.getType(),r.getPrice(),r.getQty(),r.getDescription()
+            );
         }
+        return null;
     }
     public ArrayList<RoomDTO> getAllRoom(String text) throws SQLException, ClassNotFoundException {
-        PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("SELECT * FROM room WHERE name LIKE ? OR type LIKE ? OR description LIKE ?");
+      /*  PreparedStatement stm = DBConnection.getInstance().getConnection().prepareStatement("SELECT * FROM room WHERE name LIKE ? OR type LIKE ? OR description LIKE ?");
         stm.setObject(1,text);
         stm.setObject(2,text);
         stm.setObject(3,text);
@@ -245,6 +273,17 @@ public class DataBaseAccessCode {
                 rst.getDouble(4),
                 rst.getInt(5),
                 rst.getString(6)
+            );
+            dtoList.add(dto);
+        }
+        return dtoList;
+*/
+        ArrayList<Room> entityList =roomDAO.getAll(text);
+        ArrayList<RoomDTO> dtoList = new ArrayList<>();
+        for (Room r: entityList
+             ) {
+            RoomDTO dto = new RoomDTO(
+                    r.getId(),r.getName(),r.getType(),r.getPrice(),r.getQty(),r.getDescription()
             );
             dtoList.add(dto);
         }
