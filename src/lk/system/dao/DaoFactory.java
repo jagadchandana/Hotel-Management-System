@@ -1,6 +1,7 @@
 package lk.system.dao;
 
 import lk.system.dao.custom.impl.RoomDaoImpl;
+import lk.system.dao.custom.impl.ServicesDaoImpl;
 
 public class DaoFactory {
     private static DaoFactory daoFactory;
@@ -16,6 +17,8 @@ public class DaoFactory {
         switch (type){
             case ROOM:
                 return (T) new RoomDaoImpl();
+            case SERVICES:
+                return (T) new ServicesDaoImpl();
             default:
                 return null;
         }

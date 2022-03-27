@@ -6,7 +6,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
@@ -14,17 +13,17 @@
 
 <AnchorPane prefHeight="620.0" prefWidth="900.0" stylesheets="../assert/DashBoardStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.DashBoardFormController">
    <children>
-      <AnchorPane fx:id="topBarUi" layoutX="10.0" layoutY="10.0" prefHeight="558.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
-      <BorderPane fx:id="borderPane" layoutX="23.0" layoutY="53.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <AnchorPane prefHeight="60.0" prefWidth="200.0" style="-fx-background-color: white;" BorderPane.alignment="CENTER">
+      <AnchorPane fx:id="topBarUi" prefHeight="60.0" prefWidth="900.0">
+         <children>
+            <AnchorPane prefHeight="60.0" prefWidth="900.0" style="-fx-background-color: white;">
                <children>
                   <Pane layoutX="64.0" layoutY="2.0" prefHeight="25.0" prefWidth="200.0" style="-fx-background-color: blue;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
                         <ImageView fx:id="btnClose" fitHeight="22.0" fitWidth="22.0" layoutX="678.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></ImageView>
+                           </cursor>
+                        </ImageView>
                      </children>
                   </Pane>
                   <HBox layoutX="119.0" layoutY="-17.0" prefHeight="35.0" prefWidth="761.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
@@ -95,7 +94,8 @@
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></ImageView>
+                           </cursor>
+                        </ImageView>
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -109,7 +109,8 @@
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <cursor>
                               <Cursor fx:constant="HAND" />
-                           </cursor></ImageView>
+                           </cursor>
+                        </ImageView>
                      </graphic>
                      <cursor>
                         <Cursor fx:constant="HAND" />
@@ -117,96 +118,78 @@
                   </Label>
                </children>
             </AnchorPane>
-         </top>
-         <left>
-            <AnchorPane fx:id="slider" prefHeight="362.0" prefWidth="170.0" style="-fx-background-color: blue;" BorderPane.alignment="CENTER">
-               <children>
-                  <VBox layoutY="42.0" prefHeight="250.0" prefWidth="170.0" AnchorPane.bottomAnchor="268.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="42.0">
-                     <children>
-                        <JFXButton alignment="BASELINE_LEFT" onAction="#customerOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Customer " textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#EmployeeOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Employee" textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#salaryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Salary" textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" onAction="#roomOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Room" textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="124.0" onAction="#servicesOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Services" textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                        <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="162.0" onAction="#inventoryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Inventory" textFill="#f2e9e9">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                           <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
-                           </graphic>
-                           <cursor>
-                              <Cursor fx:constant="HAND" />
-                           </cursor>
-                        </JFXButton>
-                     </children>
-                  </VBox>
-                  <Label fx:id="lblDate" layoutX="21.0" layoutY="333.0" text="2020;12;21" textFill="#f2efef">
-                     <font>
-                        <Font name="Book Antiqua Bold Italic" size="13.0" />
-                     </font>
-                  </Label>
-                  <Label fx:id="lblTime" layoutX="21.0" layoutY="363.0" text="12:20" textFill="#f2efef">
-                     <font>
-                        <Font name="Book Antiqua Bold Italic" size="13.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-         </left>
-         <center>
-            <AnchorPane fx:id="DashBoardContextMenu" prefHeight="560.0" prefWidth="489.0" BorderPane.alignment="CENTER" />
-         </center>
-      </BorderPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="DashBoardUi" layoutX="10.0" layoutY="10.0" prefHeight="558.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
+      <VBox fx:id="slider" prefHeight="560.0" prefWidth="170.0" style="-fx-background-color: blue;" AnchorPane.topAnchor="60.0">
+         <children>
+            <JFXButton alignment="BASELINE_LEFT" onAction="#customerOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Customer " textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#EmployeeOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Employee" textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#salaryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Salary" textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" onAction="#roomOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Room" textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="124.0" onAction="#servicesOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Services" textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="162.0" onAction="#inventoryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Inventory" textFill="#f2e9e9">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+               </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </JFXButton>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

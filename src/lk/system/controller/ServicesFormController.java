@@ -18,6 +18,10 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
+import lk.system.bo.custom.RoomBO;
+import lk.system.bo.custom.ServicesBO;
+import lk.system.bo.custom.impl.RoomBoImpl;
+import lk.system.bo.custom.impl.ServicesBoImpl;
 import lk.system.dto.ClassPackageDTO;
 import lk.system.dto.CustomerDTO;
 import lk.system.dto.ServicesDTO;
@@ -31,6 +35,10 @@ import java.util.Arrays;
 import java.util.Optional;
 
 public class ServicesFormController {
+
+    ServicesBO bo = new ServicesBoImpl();
+
+
     public JFXTextField txtId;
     public TableView tblServices;
     public TableColumn colId;
@@ -201,7 +209,7 @@ public class ServicesFormController {
         ServicesDTO sdto = new ServicesDTO(
                 id,name,type,foodPrice,barPrice,transportPrice,poolPrice,kidsParkPrice,beachPrice,packagePrice);
         if (btnSave.getText().equalsIgnoreCase("Save service")){
-            if (new DataBaseAccessCode().savePackage(sdto)){
+            if (bo.saveServices(sdto)){
                 new Alert(Alert.AlertType.CONFIRMATION, "Package Saved", ButtonType.OK).show();
                 loadAllServices("");
                 clearField();
@@ -209,7 +217,7 @@ public class ServicesFormController {
                 new Alert(Alert.AlertType.ERROR, "Package Save ERROR", ButtonType.OK).show();
             }
         }else{
-                if (new DataBaseAccessCode().updatePackage(sdto)){
+                if (bo.updateServices(sdto)){
                     new Alert(Alert.AlertType.CONFIRMATION, "Package Updated", ButtonType.OK).show();
                     loadAllServices("");
                     clearField();
@@ -233,7 +241,7 @@ public class ServicesFormController {
         if (confirmation.get().equals(ButtonType.YES)){
             try {
 
-                if (new DataBaseAccessCode().deletePackage(txtId.getText())){
+                if (bo.deleteServices(txtId.getText())){
                     new Alert(Alert.AlertType.CONFIRMATION, "Customer Deleted", ButtonType.OK).show();
                     clearField();
                     loadAllServices("");
@@ -252,7 +260,7 @@ public class ServicesFormController {
         ObservableList<ServicesTM> obList = FXCollections.observableArrayList();
         try {
 
-            for (ServicesDTO tempdto: new DataBaseAccessCode().getAllServices("%"+searchText+"%")
+            for (ServicesDTO tempdto: bo.getAllServices("%"+searchText+"%")
             ) {
                 ServicesTM servicesTM = new ServicesTM(
                         tempdto.getId(),
