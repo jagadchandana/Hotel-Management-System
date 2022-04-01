@@ -6,11 +6,12 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
@@ -27,6 +28,7 @@ public class DashBoardFormController implements Initializable {
     public Label lblTime;
     public AnchorPane topBarUi;
     public AnchorPane DashBoardUi;
+    public AnchorPane DashBoardContext;
 
     @FXML
         private ImageView btnClose;
@@ -52,10 +54,23 @@ public class DashBoardFormController implements Initializable {
             e.printStackTrace();
         }
         btnClose.setOnMouseClicked(event -> {
-            Alert confirmatio =new Alert(Alert.AlertType.CONFIRMATION,"Are You Shure", ButtonType.YES,ButtonType.NO);
-            Optional<ButtonType> Confirmation = confirmatio.showAndWait();
-            if (Confirmation.get().equals(ButtonType.YES)){
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION,"Exit or LogOut ? ",new ButtonType("Exite"),new ButtonType("LogOut"));
+            Optional<ButtonType> comfirm = alert.showAndWait();
+            if (comfirm.get().getText().equals("Exite")){
                 Platform.exit();
+            }else{
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/LoginForm.fxml"));
+                Parent root = null;
+                try {
+                    root = (Parent) fxmlLoader.load();
+                    Stage stage =(Stage) DashBoardContext.getScene().getWindow();
+                    stage.setTitle("DashBoard");
+                    stage.setScene(new Scene(root));
+                    stage.show();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
         });
         slider.setTranslateX(-176);

@@ -197,7 +197,7 @@ public class CustomerFormController {
                     clearField();
                     loadAllCustomers("");
                 } else{
-                    new Alert(Alert.AlertType.WARNING, "Customr Delete Error", ButtonType.CANCEL).show();
+                    new Alert(Alert.AlertType.WARNING, "Customer Delete Error", ButtonType.CANCEL).show();
                 }
 
             } catch (ClassNotFoundException | SQLException e) {

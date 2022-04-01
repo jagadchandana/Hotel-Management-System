@@ -24,9 +24,9 @@ import java.sql.SQLException;
 import java.util.Optional;
 
 public class AddNewTakeAwayItemFormController {
-    public TextField txtSearch;
-    TitemBO bo = new TitemBoImpl();
 
+    TitemBO bo = new TitemBoImpl();
+    public TextField txtSearch;
     public ImageView imgClose;
     public JFXTextField txtId;
     public JFXTextField txtName;
