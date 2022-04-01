@@ -13,6 +13,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.stage.Stage;
+import lk.system.bo.custom.TitemBO;
 
 import java.io.IOException;
 
@@ -59,6 +60,5 @@ public class TakeAwayFormController {
         stage.setTitle("Add New Item");
         stage.setScene(new Scene(root));
         stage.show();
-        System.out.println("lllllll");
     }
 }

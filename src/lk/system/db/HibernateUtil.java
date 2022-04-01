@@ -2,6 +2,7 @@ package lk.system.db;
 
 import lk.system.entity.Room;
 import lk.system.entity.Services;
+import lk.system.entity.Titem;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.Metadata;
@@ -20,6 +21,7 @@ public class HibernateUtil {
         Metadata metadata = new MetadataSources(standardRegistry)
                 .addAnnotatedClass(Room.class)
                 .addAnnotatedClass(Services.class)
+                .addAnnotatedClass(Titem.class)
                 .getMetadataBuilder()
                 .applyImplicitNamingStrategy(ImplicitNamingStrategyJpaCompliantImpl.INSTANCE)
                 .build();
