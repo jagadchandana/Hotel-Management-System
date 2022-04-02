@@ -182,6 +182,10 @@ public class DashBoardFormController implements Initializable {
     public void detailsOnAction(ActionEvent actionEvent) throws IOException {
         setTopUi("DetailsForm");
     }
+
+    public void bookingOnAction(ActionEvent actionEvent) throws IOException {
+        setTopUi("BookingSiteForm");
+    }
 }
 
 

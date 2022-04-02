@@ -8,7 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
@@ -22,8 +21,22 @@ public class LoginFormController {
     public Label lblInvalid;
     public JFXProgressBar pBar;
     public ProgressIndicator pCircle;
+    public JFXPasswordField txtPW;
+    public Label lblFor;
 
     public void initialize(){
+
+        lblFor.setOnMouseClicked(event -> {
+            try {
+                Stage stage = (Stage) LoginFormContext.getScene().getWindow();
+                stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/ForgotPaswordForm.fxml"))));
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        });
+
+
 //ENTER key pressed -> focus on next item
       /*  fName.setOnKeyPressed((KeyEvent event) ->{ switch (event.getCode()){
             case ENTER:lName.requestFocus();}});
@@ -130,8 +143,6 @@ public class LoginFormController {
 
 
     public void PreSignUpOnAction(ActionEvent actionEvent) throws IOException {
-        Stage stage = (Stage) LoginFormContext.getScene().getWindow();
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/SignupForm.fxml"))));
 
     }
 }
