@@ -28,13 +28,21 @@
                               <Image url="@../assert/close.png" />
                            </image>
                         </ImageView>
+                        <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../assert/dashboard.png" />
+                           </image>
+                        </ImageView>
                      </children>
                   </Pane>
                   <HBox layoutX="119.0" layoutY="-17.0" prefHeight="35.0" prefWidth="730.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
                      <children>
                         <JFXButton buttonType="RAISED" graphicTextGap="6.0" onAction="#takeAwayOnAction" prefHeight="38.0" prefWidth="182.0" styleClass="menuItem" text="Take Away" textFill="WHITE">
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assert/takeaway.png" />
+                                 </image></ImageView>
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -48,7 +56,10 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" graphicTextGap="6.0" layoutX="10.0" layoutY="10.0" onAction="#emailOnAction" prefHeight="38.0" prefWidth="182.0" styleClass="menuItem" text="E-mail" textFill="WHITE">
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assert/icons8-email-60.png" />
+                                 </image></ImageView>
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -62,7 +73,10 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" graphicTextGap="6.0" layoutX="146.0" layoutY="10.0" onAction="#detailsOnAction" prefHeight="38.0" prefWidth="182.0" styleClass="menuItem" text="Details" textFill="WHITE">
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assert/details.png" />
+                                 </image></ImageView>
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -76,7 +90,10 @@
                         </JFXButton>
                         <JFXButton buttonType="RAISED" graphicTextGap="6.0" onAction="#bookingOnAction" prefHeight="38.0" prefWidth="182.0" styleClass="menuItem" text="Booking" textFill="WHITE">
                            <graphic>
-                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                              <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assert/icons8-book-64.png" />
+                                 </image></ImageView>
                            </graphic>
                            <cursor>
                               <Cursor fx:constant="HAND" />
@@ -96,6 +113,9 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <image>
+                              <Image url="@../assert/mback.png" />
+                           </image>
                         </ImageView>
                      </graphic>
                      <cursor>
@@ -111,6 +131,9 @@
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor>
+                           <image>
+                              <Image url="@../assert/menu.png" />
+                           </image>
                         </ImageView>
                      </graphic>
                      <cursor>
@@ -124,72 +147,152 @@
       <AnchorPane fx:id="DashBoardUi" layoutX="10.0" layoutY="10.0" prefHeight="558.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="60.0" />
       <VBox fx:id="slider" prefHeight="560.0" prefWidth="170.0" style="-fx-background-color: #34495e;" AnchorPane.topAnchor="60.0">
          <children>
-            <JFXButton alignment="BASELINE_LEFT" onAction="#customerOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Customer " textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" onAction="#customerOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Customer " textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/Customer.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#EmployeeOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Employee" textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#EmployeeOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Employee" textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/employee.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#salaryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Salary" textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="48.0" onAction="#salaryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Salary" textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/salary.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" onAction="#roomOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Room" textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="86.0" onAction="#roomOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Room" textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/room.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="124.0" onAction="#servicesOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Services" textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="124.0" onAction="#servicesOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Services" textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/services.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="162.0" onAction="#inventoryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Inventory" textFill="#f2e9e9">
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="162.0" onAction="#inventoryOnAction" prefHeight="38.0" prefWidth="176.0" styleClass="slideBarItem" text="Inventory" textAlignment="CENTER" textFill="#f2e9e9">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/inventory.png" />
+                     </image>
+                  </ImageView>
                </graphic>
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
             </JFXButton>
+            <Label fx:id="lblDate" text="2022/02/21" textAlignment="CENTER" textFill="#e1d8d8">
+               <VBox.margin>
+                  <Insets left="30.0" top="50.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/date.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label fx:id="lblTime" layoutX="20.0" layoutY="238.0" text="13:20:am" textAlignment="CENTER" textFill="#e1d8d8">
+               <VBox.margin>
+                  <Insets left="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Bold Italic" size="12.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/time.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Label>
+            <Label text="version 1.0.0" textFill="#fcf7f7">
+               <VBox.margin>
+                  <Insets top="230.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>
