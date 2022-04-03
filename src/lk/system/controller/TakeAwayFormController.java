@@ -70,103 +70,27 @@ public class TakeAwayFormController {
         txtQty.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
-
                 if (event.getCode().equals(KeyCode.ENTER)) {
-                    addToCartOnAction();
+                    tableLoad();
                 }
             }
-                   /* Double price = Double.parseDouble(txtUnitPrice.getText())*Double.parseDouble(txtQty.getText());
-                    TOrderTM tm = new TOrderTM();
-                    tm.setName(String.valueOf(cmbItemName.getSelectionModel().getSelectedItem()));
-                    tm.setUnitPrice(txtUnitPrice.getText());
-                    tm.setQty(txtQty.getText());
-                    tm.setPrice(String.valueOf(price));
-                    tm.setBtn(new Button("Delete"));
-                    Button btn = new Button("Delete");
-                    //tblDetails.getItems().add(tm);
-                   // System.out.println(tblDetails.getItems().size());
-                   // TableCell cell =  (TableCell) tblDetails.queryAccessibleAttribute(AccessibleAttribute.CELL_AT_ROW_COLUMN,1,2);
-                   // System.out.println(cell);
-                    int qty = isAlareadyExite();
-                    if (qty>0){
-                        int newQty = qty+Integer.parseInt(txtQty.getText());
-                        System.out.println(newQty);
-                        double newPrice = newQty*Double.parseDouble(txtUnitPrice.getText());
-                        System.out.println(newPrice);
-                        tblDetails.edit(1,colQty);
-                        setValue(1,1,newPrice);
-
-
-                        System.out.println("same");
-                    }else{
-                        tblDetails.getItems().add(tm);
-                        System.out.println("not");
-                    }
-                }
-            }*/
         });
-
         loadAllItem();
     }
-    public void setValue(int row, int col, Object val)
-    {
-        final TOrderTM selectedRow = (TOrderTM) tblDetails.getItems().get(row);
-        final TableColumn<TOrderTM,?> selectedColumn = (TableColumn<TOrderTM, ?>) tblDetails.getColumns().get(col);
-        // Lookup the propery name for this column
-        final String propertyName =   ((PropertyValueFactory)selectedColumn.getCellValueFactory()).getProperty();
-        try
-        {
-            // Use reflection to get the property
-            final Field f = TOrderTM.class.getField(propertyName);
-            final Object o = f.get(selectedRow);
-
-            // Modify the value based on the type of property
-            if (o instanceof SimpleStringProperty)
-            {
-                ((SimpleStringProperty)o).setValue(val.toString());
-            }
-            else if (o instanceof SimpleIntegerProperty)
-            {
-
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        }
-    }
-    private int isAlareadyExite(){
-       int size = tblDetails.getItems().size();
-        for (int i = 0; i < size; i++) {
-            String str = String.valueOf(cmbItemName.getSelectionModel().getSelectedItem());
-            String[] arr = str.split(":", 2);
-            String code = arr[0];
-            //  TOrderTM tm = tblDetails.getItems().get(i);
-            String[] st = tblDetails.getItems().get(i).toString().split("'");
-            String pt[] = tblDetails.getItems().get(i).toString().split("'");
-            System.out.println("Qty ; "+st[5]);
-            System.out.println( tblDetails.getItems().get(i).toString());
-            System.out.println(st[1]);
-            if (st[1].equals(str)) {
-                return Integer.parseInt(st[5]);
-            }
-        }
-                return 0;
-    }
-
     ///////////////////////////////////////////////////////
 
     ObservableList<TOrderTM> obList = FXCollections.observableArrayList();
 
-    public void addToCartOnAction() {
+    public void tableLoad() {
 
     double unitPrice = Double.parseDouble(txtUnitPrice.getText());
     int qtyForCustomer = Integer.parseInt(txtQty.getText());
     double total = unitPrice * qtyForCustomer;
-
     Button btn = new Button("Delete");
-    String str = String.valueOf(cmbItemName.getSelectionModel().getSelectedItem());
+    String code = String.valueOf(cmbItemName.getSelectionModel().getSelectedItem());
 
     TOrderTM tm = new TOrderTM(
-            str,
+            code,
             unitPrice,
             qtyForCustomer,
             total,
@@ -178,11 +102,8 @@ public class TakeAwayFormController {
         tblDetails.refresh();
         calculateTotal();
     });
-
     int rowNumber = isExists(tm);
-
         if (rowNumber == -1) {
-
         if (Integer.parseInt(txtQty.getText()) >= qtyForCustomer) {
             obList.add(tm);
             tblDetails.setItems(obList);
@@ -190,7 +111,6 @@ public class TakeAwayFormController {
             new Alert(Alert.AlertType.WARNING, "Invalid QTY").show();
         }
     } else {
-
         if (Integer.parseInt(txtQty.getText()) >= obList.get(rowNumber).getQty()){
             obList.get(rowNumber).setQty(obList.get(rowNumber).getQty() + qtyForCustomer);
             obList.get(rowNumber).setPrice(obList.get(rowNumber).getPrice() + total);
@@ -200,34 +120,22 @@ public class TakeAwayFormController {
             obList.get(rowNumber).setPrice(total);
             tblDetails.refresh();
         }
-
-
-
     }
-
     calculateTotal();
-
 }
 ////////////////////////////////////////////
 
     private int isExists(TOrderTM tm) {
-
         for (int i = 0; i < obList.size(); i++) {
-
             if (obList.get(i).getName().equals(tm.getName())) {
-
                 return i;
-
             }
         }
         System.out.println("-1 near retun");
         return -1;
-
     }
 
-
     double totalCost = 0.0;
-
     private void calculateTotal() {
         totalCost = 0;
         for (TOrderTM temp : obList
@@ -235,7 +143,6 @@ public class TakeAwayFormController {
             totalCost += temp.getPrice();
         }
         lblTotal.setText(": "+totalCost+" LKR");
-
     }
 
     /////////////////////////////////////////////////
