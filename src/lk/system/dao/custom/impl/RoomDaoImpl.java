@@ -90,7 +90,8 @@ public class RoomDaoImpl implements RoomDAO {
             entityList.add(dto);
         }
         return entityList;*/
-        Query query = HibernateUtil.openSession().createQuery("FROM room");
+        Query query = HibernateUtil.openSession().createQuery("FROM room WHERE id LIKE :id OR name LIKE :id OR address LIKE :id");
+        query.setParameter("id","%"+text+"%");
         List<Room> list = query.list();
         ArrayList<Room> entityList = new ArrayList<>();
         for (Room r: list

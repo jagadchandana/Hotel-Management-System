@@ -14,6 +14,10 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
+import lk.system.bo.custom.EmployeeBO;
+import lk.system.bo.custom.impl.EmployeeBoImpl;
+import lk.system.dao.custom.EmployeeDAO;
+import lk.system.dao.custom.impl.EmployeeDaImpl;
 import lk.system.dto.CustomerDTO;
 import lk.system.dto.EmployeeDTO;
 import lk.system.views.tm.EmployeeTM;
@@ -45,6 +49,7 @@ public class EmployeeFormController {
     public JFXDatePicker dpSettleDate;
     public TableColumn colsdate;
 
+    EmployeeBO bo = new EmployeeBoImpl();
 
     public void initialize(){
         colId.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -76,7 +81,7 @@ public class EmployeeFormController {
                     String.valueOf(dpSettleDate.getValue()),
                     String.valueOf(cmbJPosition.getSelectionModel().getSelectedItem()));
             try {
-                if (new DataBaseAccessCode().saveEmployee(dto)){
+                if (bo.saveEmployee(dto)){
                     new Alert(Alert.AlertType.CONFIRMATION, "Employee Saved", ButtonType.OK).show();
                     loadAllEmployee("");
                 }else {
@@ -93,7 +98,7 @@ public class EmployeeFormController {
                     String.valueOf(dpDOB.getValue()),String.valueOf(dpSettleDate.getValue()),
                     String.valueOf(cmbJPosition.getSelectionModel().getSelectedItem()));
             try {
-                if(new DataBaseAccessCode().updateEmployee(dto)){
+                if(bo.updateEmployee(dto)){
                     new Alert(Alert.AlertType.CONFIRMATION,"Employee Updated",ButtonType.OK).show();
                     loadAllEmployee("");
                 }else{
@@ -119,7 +124,7 @@ public class EmployeeFormController {
         Optional<ButtonType> confirmation = confimation.showAndWait();
         if (confirmation.get().equals(ButtonType.YES)){
             try {
-                if (new DataBaseAccessCode().deleteEmployee(txtId.getText())){
+                if (bo.deleteEmployee(txtId.getText())){
                     new Alert(Alert.AlertType.INFORMATION,"Employee Deleted",ButtonType.OK).show();
                     loadAllEmployee("");
                 }else{
@@ -135,7 +140,7 @@ public class EmployeeFormController {
     public void loadAllEmployee(String text){
         ObservableList<EmployeeTM> obList = FXCollections.observableArrayList();
         try {
-            for (EmployeeDTO tempdto:new DataBaseAccessCode().getAllEmployee("%"+text+"%")
+            for (EmployeeDTO tempdto:bo.getAllEmployee(text)
                  ) {
                 EmployeeTM employeeTM = new EmployeeTM(
                         tempdto.getId(),

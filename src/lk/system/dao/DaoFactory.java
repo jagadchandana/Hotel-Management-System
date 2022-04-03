@@ -1,5 +1,6 @@
 package lk.system.dao;
 
+import lk.system.dao.custom.impl.EmployeeDaImpl;
 import lk.system.dao.custom.impl.RoomDaoImpl;
 import lk.system.dao.custom.impl.ServicesDaoImpl;
 import lk.system.dao.custom.impl.TitemDaoImpl;
@@ -22,6 +23,8 @@ public class DaoFactory {
                 return (T) new ServicesDaoImpl();
             case TITEM:
                 return (T) new TitemDaoImpl();
+            case EMPLOYEE:
+                return (T) new EmployeeDaImpl();
             default:
                 return null;
         }
