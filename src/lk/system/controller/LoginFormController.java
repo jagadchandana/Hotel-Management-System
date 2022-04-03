@@ -3,12 +3,14 @@ package lk.system.controller;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXProgressBar;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -23,6 +25,7 @@ public class LoginFormController {
     public ProgressIndicator pCircle;
     public JFXPasswordField txtPW;
     public Label lblFor;
+    public ImageView btnClose;
 
     public void initialize(){
 
@@ -34,6 +37,9 @@ public class LoginFormController {
                 e.printStackTrace();
             }
 
+        });
+        btnClose.setOnMouseClicked(event -> {
+            Platform.exit();
         });
 
 

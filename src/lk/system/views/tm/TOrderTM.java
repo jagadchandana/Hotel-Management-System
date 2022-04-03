@@ -4,15 +4,15 @@ import javafx.scene.control.Button;
 
 public class TOrderTM {
     private String name;
-    private String unitPrice;
-    private String qty;
-    private String price;
+    private double unitPrice;
+    private int qty;
+    private double price;
     private Button btn;
 
     public TOrderTM() {
     }
 
-    public TOrderTM(String name, String unitPrice, String qty, String price, Button btn) {
+    public TOrderTM(String name, double unitPrice, int qty, double price, Button btn) {
         this.name = name;
         this.unitPrice = unitPrice;
         this.qty = qty;
@@ -28,27 +28,27 @@ public class TOrderTM {
         this.name = name;
     }
 
-    public String getUnitPrice() {
+    public double getUnitPrice() {
         return unitPrice;
     }
 
-    public void setUnitPrice(String unitPrice) {
+    public void setUnitPrice(double unitPrice) {
         this.unitPrice = unitPrice;
     }
 
-    public String getQty() {
+    public int getQty() {
         return qty;
     }
 
-    public void setQty(String qty) {
+    public void setQty(int qty) {
         this.qty = qty;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -58,16 +58,5 @@ public class TOrderTM {
 
     public void setBtn(Button btn) {
         this.btn = btn;
-    }
-
-    @Override
-    public String toString() {
-        return "TOrderTM{" +
-                "name='" + name + '\'' +
-                ", unitPrice='" + unitPrice + '\'' +
-                ", qty='" + qty + '\'' +
-                ", price='" + price + '\'' +
-                ", btn=" + btn +
-                '}';
     }
 }

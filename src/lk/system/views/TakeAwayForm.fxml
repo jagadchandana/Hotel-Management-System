@@ -62,13 +62,13 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblDetails" layoutX="361.0" layoutY="168.0" prefHeight="308.0" prefWidth="495.0">
+      <TableView fx:id="tblDetails" layoutX="361.0" layoutY="168.0" prefHeight="308.0" prefWidth="459.0">
         <columns>
-          <TableColumn fx:id="colName" prefWidth="162.0" text="Name" />
+          <TableColumn fx:id="colName" prefWidth="162.0" text="Id   :   Name" />
           <TableColumn fx:id="colUnitPrice" prefWidth="96.0" text="Unit Price" />
             <TableColumn fx:id="colQty" prefWidth="63.0" text="Quntity" />
             <TableColumn fx:id="colPrice" prefWidth="69.0" text="Price" />
-            <TableColumn fx:id="colOption" prefWidth="104.0" text="Option" />
+            <TableColumn fx:id="colOption" prefWidth="70.0" text="Option" />
         </columns>
       </TableView>
       <TextField fx:id="txtCash" layoutX="540.0" layoutY="105.0" prefHeight="25.0" prefWidth="116.0" promptText="Cash LKR" />
