@@ -3,7 +3,6 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextArea?>
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
@@ -36,7 +35,10 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXComboBox fx:id="cmbItemName" labelFloat="true" layoutX="295.0" layoutY="53.0" prefHeight="25.0" prefWidth="250.0" promptText="ID: Name" />
+      <JFXComboBox fx:id="cmbItemName" labelFloat="true" layoutX="295.0" layoutY="53.0" prefHeight="25.0" prefWidth="250.0" promptText="ID: Name">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
       <TextField fx:id="txtUnitPrice" disable="true" layoutX="656.0" layoutY="56.0" prefHeight="25.0" prefWidth="116.0" promptText="Unit Price LKR" />
       <TextField fx:id="txtQty" layoutX="803.0" layoutY="56.0" prefHeight="25.0" prefWidth="71.0" promptText="Quntity" />
       <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="107.0" onAction="#showBillOnAction" text="Show Bill">
@@ -44,14 +46,6 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXTextArea fx:id="txtDetails" blendMode="DARKEN" editable="false" labelFloat="true" layoutX="27.0" layoutY="56.0" prefHeight="482.0" prefWidth="209.0">
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <cursor>
-            <Cursor fx:constant="DISAPPEAR" />
-         </cursor>
-      </JFXTextArea>
       <JFXButton buttonType="RAISED" layoutX="735.0" layoutY="107.0" onAction="#printBillOnAction" text="Print Bill">
          <font>
             <Font name="System Bold" size="13.0" />
@@ -77,10 +71,19 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="406.0" layoutY="522.0" prefHeight="19.0" prefWidth="71.0" text="100/:" textFill="#d02525">
+      <Label fx:id="lblTotal" layoutX="406.0" layoutY="522.0" prefHeight="19.0" prefWidth="102.0" text="0.00" textFill="#d02525">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
+      <Pane layoutX="20.0" layoutY="53.0" prefHeight="491.0" prefWidth="250.0" style="-fx-background-color: white;">
+         <children>
+            <JFXTextArea fx:id="txtDetails" prefHeight="491.0" prefWidth="250.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </JFXTextArea>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

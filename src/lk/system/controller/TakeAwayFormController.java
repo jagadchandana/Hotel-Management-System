@@ -71,7 +71,13 @@ public class TakeAwayFormController {
             @Override
             public void handle(KeyEvent event) {
                 if (event.getCode().equals(KeyCode.ENTER)) {
-                    tableLoad();
+                    boolean empty = cmbItemName.getValue()==null;
+                    if (txtQty.getText().matches("\\d+") && txtQty.getText()!=("") && !empty){
+                        tableLoad();
+                    }else{
+                        new Alert(Alert.AlertType.WARNING,"Enter Valid Quntity Or Not Select Item",ButtonType.OK).show();
+                    }
+
                 }
             }
         });
@@ -89,7 +95,7 @@ public class TakeAwayFormController {
     Button btn = new Button("Delete");
     String code = String.valueOf(cmbItemName.getSelectionModel().getSelectedItem());
 
-    TOrderTM tm = new TOrderTM(
+   TOrderTM tm = new TOrderTM(
             code,
             unitPrice,
             qtyForCustomer,
@@ -131,7 +137,6 @@ public class TakeAwayFormController {
                 return i;
             }
         }
-        System.out.println("-1 near retun");
         return -1;
     }
 
@@ -153,6 +158,25 @@ public class TakeAwayFormController {
 
 
     public void showBillOnAction(ActionEvent actionEvent) {
+
+        if((txtCash.getText() != ("")) && ((txtCash.getText().matches("\\d+\\.\\d+") || (txtCash.getText().matches("\\d+"))))){
+            txtDetails.clear();
+            txtDetails.setText("---------------\n"+"---Moana Hotel - Take Away---\n"+"--------------"+"\n"+"  Item\t"+"|Qty\t"+"|QtyPrice\t"+"|Price\n\n");
+            for (int i = 0; i < obList.size(); i++) {
+                obList.get(i).getName();
+                obList.get(i).getUnitPrice();
+                txtDetails.setText(txtDetails.getText()+"#"+(i+1)+". "+obList.get(i).getName()+"|\t"+obList.get(i).getQty()+"|\t"+ obList.get(i).getUnitPrice()+"|\t"+obList.get(i).getPrice()+"\n");
+            }
+            double balance = (Double.parseDouble(txtCash.getText()) - totalCost);
+            if (balance<0){
+                new Alert(Alert.AlertType.INFORMATION,"Balance is Minace"+balance,ButtonType.OK).show();
+            }
+            txtDetails.setText(txtDetails.getText()+"--------------\n"+"Total  "+lblTotal.getText()+"\n"+"================\n"+"Cash  :  "+txtCash.getText()+"\n"+"--------------\n"+"Balance : "+balance+"\n===========\n");
+
+        }else{
+            new Alert(Alert.AlertType.WARNING,"Please Enter Valid Cash..",ButtonType.OK).show();
+        }
+
     }
 
     public void printBillOnAction(ActionEvent actionEvent) {
@@ -179,11 +203,6 @@ public class TakeAwayFormController {
                 cmbItemName.getItems().addAll(dto.getId()+": "+dto.getName());
 
             }
-           /* for (String tempid:new DataBaseAccessCode().loadAllServies()
-            ) {
-                cmbServiceId.getItems().addAll(tempid);
-            }
-            new DataBaseAccessCode().loadAllRoomIds();*/
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         } catch (ClassNotFoundException e) {
