@@ -1,5 +1,9 @@
 package lk.system.controller;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.beans.property.SimpleIntegerProperty;
@@ -9,24 +13,35 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.print.*;
 import javafx.scene.AccessibleAttribute;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.transform.Scale;
+import javafx.scene.web.WebEngine;
 import javafx.stage.Stage;
 import lk.system.bo.custom.TitemBO;
 import lk.system.bo.custom.impl.TitemBoImpl;
 import lk.system.dto.TitemDTO;
 import lk.system.views.tm.TOrderTM;
+import sun.misc.resources.Messages;
 
 import javax.swing.table.DefaultTableModel;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.lang.reflect.Field;
 import java.sql.SQLException;
 import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Objects;
 
 public class TakeAwayFormController {
 
@@ -43,6 +58,8 @@ public class TakeAwayFormController {
     public TextField txtCash;
     public TextField txtId;
     public Label lblTotal;
+    public TextField txtCode;
+    public TextField txtName;
 
     TitemBO tbo = new TitemBoImpl();
     TitemDTO sdto = new TitemDTO();
@@ -52,6 +69,12 @@ public class TakeAwayFormController {
         colQty.setCellValueFactory(new PropertyValueFactory<>("qty"));
         colPrice.setCellValueFactory(new PropertyValueFactory<>("price"));
         colOption.setCellValueFactory(new PropertyValueFactory<>("btn"));
+
+        txtCode.textProperty().addListener((observable, oldValue, newValue) -> {
+            loadItem(newValue);
+        });
+
+
 
         cmbItemName.valueProperty().addListener(observable -> {
             String str = String.valueOf(cmbItemName.getSelectionModel().getSelectedItem());
@@ -161,7 +184,7 @@ public class TakeAwayFormController {
 
         if((txtCash.getText() != ("")) && ((txtCash.getText().matches("\\d+\\.\\d+") || (txtCash.getText().matches("\\d+"))))){
             txtDetails.clear();
-            txtDetails.setText("---------------\n"+"---Moana Hotel - Take Away---\n"+"--------------"+"\n"+"  Item\t"+"|Qty\t"+"|QtyPrice\t"+"|Price\n\n");
+            txtDetails.setText("\t-----------------------------------\n"+"\t---Moana Hotel - Take Away---\n"+"-------------------------------"+"\n"+"  Item\t"+"|Qty\t"+"|QtyPrice\t"+"|Price\n\n");
             for (int i = 0; i < obList.size(); i++) {
                 obList.get(i).getName();
                 obList.get(i).getUnitPrice();
@@ -180,7 +203,13 @@ public class TakeAwayFormController {
     }
 
     public void printBillOnAction(ActionEvent actionEvent) {
-    }
+        String s = txtDetails.getText();
+        PrintJob p = new PrintJob();
+        p.print(s);
+
+        }
+
+    //=================================
 
     public void newItemOnAction(ActionEvent actionEvent) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/AddNewTakeAwayItemForm.fxml"));
@@ -203,14 +232,30 @@ public class TakeAwayFormController {
                 cmbItemName.getItems().addAll(dto.getId()+": "+dto.getName());
 
             }
-        } catch (SQLException throwables) {
+        } catch (SQLException | ClassNotFoundException throwables) {
             throwables.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
         }
+    }
+    private void loadItem(String text){
+
+        try {
+           TitemDTO  dto =tbo.getTitem(text);
+           if (dto==null){
+               clearText();
+           }
+            txtName.setText(dto.getName());
+            txtUnitPrice.setText(String.valueOf(dto.getPrice()));
+        } catch (SQLException | ClassNotFoundException throwables) {
+            throwables.printStackTrace();
+        }
+    }
+    private void clearText(){
+        txtName.clear();
+        txtUnitPrice.clear();
+        txtQty.clear();
     }
 }
 
-class num{
 
-}
+
+

@@ -35,43 +35,43 @@
             </JFXButton>
          </children>
       </Pane>
-      <JFXComboBox fx:id="cmbItemName" labelFloat="true" layoutX="295.0" layoutY="53.0" prefHeight="25.0" prefWidth="250.0" promptText="ID: Name">
+      <JFXComboBox fx:id="cmbItemName" labelFloat="true" layoutX="281.0" layoutY="486.0" prefHeight="25.0" prefWidth="250.0" promptText="ID: Name">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor></JFXComboBox>
-      <TextField fx:id="txtUnitPrice" disable="true" layoutX="656.0" layoutY="56.0" prefHeight="25.0" prefWidth="116.0" promptText="Unit Price LKR" />
-      <TextField fx:id="txtQty" layoutX="803.0" layoutY="56.0" prefHeight="25.0" prefWidth="71.0" promptText="Quntity" />
-      <JFXButton buttonType="RAISED" layoutX="670.0" layoutY="107.0" onAction="#showBillOnAction" text="Show Bill">
+      <TextField fx:id="txtUnitPrice" disable="true" layoutX="699.0" layoutY="130.0" prefHeight="25.0" prefWidth="53.0" promptText="Unit Price LKR" />
+      <TextField fx:id="txtQty" layoutX="767.0" layoutY="130.0" prefHeight="25.0" prefWidth="126.0" promptText="Quntity" />
+      <JFXButton buttonType="RAISED" layoutX="802.0" layoutY="219.0" onAction="#showBillOnAction" text="Show Bill">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="735.0" layoutY="107.0" onAction="#printBillOnAction" text="Print Bill">
+      <JFXButton buttonType="RAISED" layoutX="717.0" layoutY="219.0" onAction="#printBillOnAction" text="Print Bill">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="804.0" layoutY="107.0" text="Print Bill">
+      <JFXButton buttonType="RAISED" layoutX="815.0" layoutY="435.0" text="Print Bill">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <TableView fx:id="tblDetails" layoutX="361.0" layoutY="168.0" prefHeight="308.0" prefWidth="459.0">
+      <TableView fx:id="tblDetails" layoutX="281.0" layoutY="53.0" prefHeight="343.0" prefWidth="408.0">
         <columns>
-          <TableColumn fx:id="colName" prefWidth="162.0" text="Id   :   Name" />
-          <TableColumn fx:id="colUnitPrice" prefWidth="96.0" text="Unit Price" />
-            <TableColumn fx:id="colQty" prefWidth="63.0" text="Quntity" />
-            <TableColumn fx:id="colPrice" prefWidth="69.0" text="Price" />
-            <TableColumn fx:id="colOption" prefWidth="70.0" text="Option" />
+          <TableColumn fx:id="colName" prefWidth="142.0" text="Id   :   Name" />
+          <TableColumn fx:id="colUnitPrice" prefWidth="73.0" text="Unit Price" />
+            <TableColumn fx:id="colQty" prefWidth="55.0" text="Quntity" />
+            <TableColumn fx:id="colPrice" prefWidth="64.0" text="Price" />
+            <TableColumn fx:id="colOption" prefWidth="73.0" text="Option" />
         </columns>
       </TableView>
-      <TextField fx:id="txtCash" layoutX="540.0" layoutY="105.0" prefHeight="25.0" prefWidth="116.0" promptText="Cash LKR" />
-      <Label layoutX="361.0" layoutY="521.0" text="Total: ">
+      <TextField fx:id="txtCash" layoutX="699.0" layoutY="168.0" prefHeight="25.0" prefWidth="191.0" promptText="Cash LKR" />
+      <Label layoutX="281.0" layoutY="415.0" text="Total: ">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
       </Label>
-      <Label fx:id="lblTotal" layoutX="406.0" layoutY="522.0" prefHeight="19.0" prefWidth="102.0" text="0.00" textFill="#d02525">
+      <Label fx:id="lblTotal" layoutX="326.0" layoutY="416.0" prefHeight="19.0" prefWidth="102.0" text="0.00" textFill="#d02525">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
@@ -85,5 +85,7 @@
             </JFXTextArea>
          </children>
       </Pane>
+      <TextField fx:id="txtCode" layoutX="699.0" layoutY="53.0" prefHeight="25.0" prefWidth="191.0" promptText="Item Code" />
+      <TextField fx:id="txtName" layoutX="699.0" layoutY="95.0" prefHeight="25.0" prefWidth="191.0" promptText="Item Name" />
    </children>
 </AnchorPane>
