@@ -1,7 +1,6 @@
 package lk.system.controller;
 
 import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXTextArea;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -14,18 +13,11 @@ import lk.system.dto.CustomerDTO;
 import lk.system.dto.PersonalDetailsDTO;
 import lk.system.dto.RoomDTO;
 import lk.system.dto.ServicesDTO;
-import sun.util.resources.cldr.ti.CalendarData_ti_ER;
+import lk.system.extra.PrintJob;
 
-import java.awt.event.ItemListener;
-import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.Duration;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 

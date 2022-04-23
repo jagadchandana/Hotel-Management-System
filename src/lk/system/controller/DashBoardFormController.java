@@ -1,5 +1,8 @@
 package lk.system.controller;
 
+import javafx.animation.Animation;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -13,11 +16,16 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import lk.system.extra.TimeSet;
 
 import java.io.IOException;
 import java.net.URL;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -48,6 +56,16 @@ public class DashBoardFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        Timeline clock = new Timeline(new KeyFrame(Duration.ZERO, e ->
+                lblTime.setText(LocalDateTime.now().format(DateTimeFormatter.ofPattern(" HH:mm")))
+        ),
+                new KeyFrame(Duration.seconds(1))
+        );
+        clock.setCycleCount(Animation.INDEFINITE);
+        clock.play();
+        lblDate.setText(TimeSet.getDate());
+
         try {
             setTopUi("TakeAwayForm");
         } catch (IOException e) {

@@ -3,6 +3,7 @@ package lk.system.views.tm;
 import javafx.scene.control.Button;
 
 public class TOrderTM {
+    private String id;
     private String name;
     private double unitPrice;
     private int qty;
@@ -12,13 +13,17 @@ public class TOrderTM {
     public TOrderTM() {
     }
 
-    public TOrderTM(String name, double unitPrice, int qty, double price, Button btn) {
+    public TOrderTM(String id,String name, double unitPrice, int qty, double price, Button btn) {
+        this.id = id;
         this.name = name;
         this.unitPrice = unitPrice;
         this.qty = qty;
         this.price = price;
         this.btn = btn;
     }
+    public String getId() { return id; }
+
+    public void setId(String id){ this.id = id;}
 
     public String getName() {
         return name;

@@ -1,4 +1,4 @@
-package lk.system.controller;
+package lk.system.extra;
 
 import com.jfoenix.controls.JFXTextArea;
 import javafx.print.JobSettings;
