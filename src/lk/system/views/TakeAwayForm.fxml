@@ -16,7 +16,7 @@
    <children>
       <ImageView fitHeight="539.0" fitWidth="900.0" pickOnBounds="true" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
          <image>
-            <Image url="@../assert/sea1.jpg" />
+            <Image url="@../assert/image/sea1.jpg" />
          </image>
       </ImageView>
       <Pane prefHeight="33.0" prefWidth="900.0" style="-fx-background-color: #3498db;">

@@ -2,43 +2,77 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="457.0" prefWidth="417.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.BillGenerateFormController">
+<AnchorPane prefHeight="457.0" prefWidth="465.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.BillGenerateFormController">
    <children>
-      <AnchorPane prefHeight="32.0" prefWidth="417.0" style="-fx-background-color: grey;">
+      <AnchorPane prefHeight="32.0" prefWidth="417.0" style="-fx-background-color: #1782bf;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Label layoutX="4.0" layoutY="5.0" text="Create Bill">
+            <Label layoutX="8.0" layoutY="4.0" text="Create Bill">
                <font>
                   <Font name="System Bold" size="14.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../assert/image/date.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </Label>
+            <ImageView fx:id="imgClose" fitHeight="25.0" fitWidth="28.0" layoutX="436.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assert/image/close.png" />
+               </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </ImageView>
          </children>
       </AnchorPane>
-      <JFXComboBox fx:id="cmbCustomerId" layoutX="21.0" layoutY="55.0" prefHeight="25.0" prefWidth="123.0" promptText="Customer Id" />
-      <TextField fx:id="txtServiceId" layoutX="163.0" layoutY="55.0" prefHeight="25.0" prefWidth="78.0" promptText="Services Id" />
-      <TextField fx:id="txtRoomId" layoutX="265.0" layoutY="55.0" prefHeight="25.0" prefWidth="78.0" promptText="Room Id" />
-      <JFXButton buttonType="RAISED" layoutX="332.0" layoutY="150.0" onAction="#billPrintOnAction" text="Bill Print">
+      <JFXComboBox fx:id="cmbCustomerId" layoutX="226.0" layoutY="43.0" prefHeight="25.0" prefWidth="206.0" promptText="Customer Id">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></JFXComboBox>
+      <TextField fx:id="txtServiceId" editable="false" layoutX="226.0" layoutY="116.0" prefHeight="25.0" prefWidth="92.0" promptText="Services Id" />
+      <TextField fx:id="txtRoomId" editable="false" layoutX="330.0" layoutY="116.0" prefHeight="25.0" prefWidth="71.0" promptText="Room Id" />
+      <JFXButton buttonType="RAISED" layoutX="332.0" layoutY="215.0" onAction="#billPrintOnAction" text="Bill Print">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="150.0" onAction="#BillOnAction" text="Bill">
+      <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="215.0" onAction="#BillOnAction" text="Bill">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <TextArea fx:id="txtDetails" layoutX="21.0" layoutY="116.0" prefHeight="200.0" prefWidth="200.0" promptText="Customer Details-" />
-      <JFXButton buttonType="RAISED" layoutX="351.0" layoutY="53.0" onAction="#undoOnAction" text="Undo">
+      <TextArea fx:id="txtDetails" editable="false" layoutX="7.0" layoutY="43.0" prefHeight="401.0" prefWidth="206.0" promptText="Customer Details-" />
+      <JFXButton buttonType="RAISED" layoutX="287.0" layoutY="174.0" onAction="#undoOnAction" text="Undo">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
       </JFXButton>
-      <Button fx:id="btnClose" layoutX="325.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnCloseOnAction" text="Close" />
+      <Button fx:id="btnClose" layoutX="325.0" layoutY="401.0" mnemonicParsing="false" onAction="#btnCloseOnAction" text="Close">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor></Button>
+      <TextField fx:id="txtCName" editable="false" layoutX="226.0" layoutY="82.0" prefHeight="25.0" prefWidth="196.0" promptText="Customer Name" />
    </children>
 </AnchorPane>

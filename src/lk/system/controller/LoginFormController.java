@@ -135,16 +135,8 @@ public class LoginFormController {
 
 
 
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../views/DashBoardForm.fxml"));
-        Parent root = null;
-        root = (Parent) fxmlLoader.load();
-        Stage stage =(Stage) LoginFormContext.getScene().getWindow();
-        stage.setTitle("DashBoard");
-        stage.setScene(new Scene(root));
-        root.getStylesheets().add(String.valueOf(getClass().getResource("../assert/DashBoardStyle.css")));
-        stage.show();
-
-
+        Stage stage = (Stage) LoginFormContext.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../views/DashBoardForm.fxml"))));
             }
 
 

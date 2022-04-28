@@ -82,6 +82,7 @@ public class TakeAwayFormController {
                     //boolean empty = cmbItemName.getValue()==null;
                     if (txtQty.getText().matches("\\d+") && txtQty.getText()!=("")){
                         tableLoad();
+                        clearText();
                     }else{
                         new Alert(Alert.AlertType.WARNING,"Enter Valid Quntity Or Not Select Item",ButtonType.OK).show();
                     }

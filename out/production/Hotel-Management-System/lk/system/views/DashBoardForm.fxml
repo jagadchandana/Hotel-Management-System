@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="DashBoardContext" prefHeight="620.0" prefWidth="900.0" stylesheets="../assert/DashBoardStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.DashBoardFormController">
+<AnchorPane fx:id="DashBoardContext" prefHeight="620.0" prefWidth="900.0" stylesheets="@../assert/style/DashBoardStyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.DashBoardFormController">
    <children>
       <AnchorPane fx:id="topBarUi" prefHeight="60.0" prefWidth="900.0">
          <children>
@@ -25,12 +25,12 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <image>
-                              <Image url="@../assert/close.png" />
+                              <Image url="@../assert/image/close.png" />
                            </image>
                         </ImageView>
                         <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../assert/dashboard.png" />
+                              <Image url="@../assert/image/dashboard.png" />
                            </image>
                         </ImageView>
                      </children>
@@ -41,7 +41,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assert/takeaway.png" />
+                                    <Image url="@../assert/image/takeaway.png" />
                                  </image></ImageView>
                            </graphic>
                            <cursor>
@@ -58,7 +58,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assert/icons8-email-60.png" />
+                                    <Image url="@../assert/image/icons8-email-60.png" />
                                  </image></ImageView>
                            </graphic>
                            <cursor>
@@ -75,7 +75,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assert/details.png" />
+                                    <Image url="@../assert/image/details.png" />
                                  </image></ImageView>
                            </graphic>
                            <cursor>
@@ -92,7 +92,7 @@
                            <graphic>
                               <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@../assert/icons8-book-64.png" />
+                                    <Image url="@../assert/image/icons8-book-64.png" />
                                  </image></ImageView>
                            </graphic>
                            <cursor>
@@ -114,7 +114,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <image>
-                              <Image url="@../assert/mback.png" />
+                              <Image url="@../assert/image/mback.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -132,7 +132,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                            <image>
-                              <Image url="@../assert/menu.png" />
+                              <Image url="@../assert/image/menu.png" />
                            </image>
                         </ImageView>
                      </graphic>
@@ -154,7 +154,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/Customer.png" />
+                        <Image url="@../assert/image/Customer.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -172,7 +172,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/employee.png" />
+                        <Image url="@../assert/image/employee.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -190,7 +190,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/salary.png" />
+                        <Image url="@../assert/image/salary.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -208,7 +208,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/room.png" />
+                        <Image url="@../assert/image/room.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -226,7 +226,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/services.png" />
+                        <Image url="@../assert/image/services.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -244,7 +244,7 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/inventory.png" />
+                        <Image url="@../assert/image/inventory.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -265,7 +265,7 @@
                <graphic>
                   <ImageView fitHeight="14.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/date.png" />
+                        <Image url="@../assert/image/date.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -280,11 +280,12 @@
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../assert/time.png" />
+                        <Image url="@../assert/image/time.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Label>
+            <Label text="Label" />
             <Label text="version 1.0.0" textFill="#fcf7f7">
                <VBox.margin>
                   <Insets top="230.0" />

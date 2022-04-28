@@ -7,6 +7,7 @@ import javafx.event.ActionEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import lk.system.DataBaseAccessCode;
 import lk.system.dto.CustomerDTO;
@@ -14,6 +15,7 @@ import lk.system.dto.PersonalDetailsDTO;
 import lk.system.dto.RoomDTO;
 import lk.system.dto.ServicesDTO;
 import lk.system.extra.PrintJob;
+import lk.system.extra.TimeSet;
 
 import java.sql.SQLException;
 import java.text.ParseException;
@@ -27,6 +29,8 @@ public class BillGenerateFormController {
     public TextField txtRoomId;
     public TextArea txtDetails;
     public Button btnClose;
+    public ImageView imgClose;
+    public TextField txtCName;
     long billDays;
     int numOfAdult;
     int numOfKids;
@@ -40,10 +44,13 @@ public class BillGenerateFormController {
              @Override
              public void changed(ObservableValue observable, Object oldValue, Object newValue) {
                  priceCount(String.valueOf(cmbCustomerId.getSelectionModel().getSelectedItem()));
-                 System.out.println("kkkkk");
              }
          });
-         //cmbCustomerId.addItemListner(new ItemListener())
+         imgClose.setOnMouseClicked(event -> {
+             Stage stage = (Stage) btnClose.getScene().getWindow();
+             stage.close();
+         });
+
      }
 
     private void priceCount(String id){
@@ -60,6 +67,7 @@ public class BillGenerateFormController {
             } catch (ParseException e) {
                 e.printStackTrace();
                 }
+        txtCName.setText(dto.getName());
         txtRoomId.setText(dto.getRoomId());
         txtServiceId.setText(dto.getServiceId());
 
@@ -75,8 +83,7 @@ public class BillGenerateFormController {
             roomPrice = rdto.getPrice();
             roomQty = rdto.getQty();
 
-
-        packageCost = (((packagePrice*numOfAdult)+(packagePrice*0.25*numOfKids))*billDays)+((billDays*roomPrice)*roomQty);//room qty
+        packageCost = (((packagePrice*numOfAdult)+((packagePrice*0.25)*numOfKids))*billDays)+((billDays*roomPrice)*roomQty);//room qty
 
         } catch (SQLException throwables) {
             throwables.printStackTrace();
@@ -92,10 +99,21 @@ public class BillGenerateFormController {
     }
 
     public void BillOnAction(ActionEvent actionEvent) {
+        try {
+            CustomerDTO dto = new DataBaseAccessCode().getCustomer(String.valueOf(cmbCustomerId.getSelectionModel().getSelectedItem()));
 
-         txtDetails.setText("================\n"+"Service Id-"+txtServiceId.getText()+"\n"+"Services Price-"+packagePrice+"\n"
-            +"Room Id-"+txtRoomId.getText()+"\n"+"Room Price-"+roomPrice+"\n"+"Rented Days-"+billDays+"\n"+"-----------\n"
+
+         txtDetails.clear();
+        txtDetails.setText("\t-----------------------------------\n"+"\t---Moana Hotel - Take Away---\n"+"-------------------------------"+"\n");
+        txtDetails.setText(txtDetails.getText()+"Date:"+ TimeSet.getDate()+"\n"+"Time:"+ TimeSet.getTime()+"\n\n");
+         txtDetails.setText(txtDetails.getText()+"================\n"+" \n"+"Service Id-"+txtServiceId.getText()+"\n"+"Services Price-"+packagePrice+"\n"
+            +"Room Id-"+txtRoomId.getText()+"\n"+"Room Price-"+roomPrice+"\n"+"Rented Date: \n"+dto.getOnDate()+"\tTime: "+dto.getOnTime()+"\n"+"Rent Out Date:\n"+dto.getOffDate()+"\tTime: "+dto.getOffTime()+"\nRented Days-"+billDays+"\n"+"-----------\n"
             +"Total Price-"+packageCost+"\n----------");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
     public void undoOnAction(ActionEvent actionEvent) {

@@ -204,7 +204,7 @@ public class ServicesFormController {
                 classPrice=0;
                 break;
         }
-        packagePrice=(foodPrice+barPrice+transportPrice+beachPrice+poolPrice+kidsParkPrice)*classPrice;
+        packagePrice=(foodPrice+barPrice+transportPrice+beachPrice+poolPrice+kidsParkPrice)+classPrice;
 
         ServicesDTO sdto = new ServicesDTO(
                 id,name,type,foodPrice,barPrice,transportPrice,poolPrice,kidsParkPrice,beachPrice,packagePrice);

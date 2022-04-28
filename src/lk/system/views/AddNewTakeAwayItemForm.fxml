@@ -22,7 +22,7 @@
             </Label>
             <ImageView fx:id="imgClose" fitHeight="25.0" fitWidth="26.0" layoutX="468.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../assert/close.png" />
+                  <Image url="@../assert/image/close.png" />
                </image>
             </ImageView>
          </children>

@@ -2,12 +2,14 @@ package lk.system.controller;
 
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -29,6 +31,7 @@ public class ForgotPasswordFormController {
     public JFXPasswordField txtCode2;
     public Label lblRemember;
     public AnchorPane RememberFormContext;
+    public ImageView imgClose;
 
     public void initialize() {
         lblRemember.setOnMouseClicked(event -> {
@@ -39,10 +42,15 @@ public class ForgotPasswordFormController {
                 e.printStackTrace();
             }
         });
+        imgClose.setOnMouseClicked(event -> {
+            Platform.exit();
+        });
     }
 
     public void SignUpFormOnAction(ActionEvent actionEvent) throws IOException {
+
     }
+
 
 
 

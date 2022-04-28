@@ -1,0 +1,15 @@
+.btn:hover{
+    -fx-background-color: #146886;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 3px 0px;
+}
+.text:hover{
+    -fx-text-fill:blue;
+    -fx-border-color: red;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+.spBtn:hover{
+    -fx-background-color: #146886;
+    -fx-border-color: WHITE;
+    -fx-border-width: 0px 0px 3px 0px;
+}

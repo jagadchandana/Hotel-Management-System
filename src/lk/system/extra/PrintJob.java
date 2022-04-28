@@ -1,6 +1,5 @@
 package lk.system.extra;
 
-import com.jfoenix.controls.JFXTextArea;
 import javafx.print.JobSettings;
 import javafx.print.PageLayout;
 import javafx.print.PrinterJob;
@@ -33,7 +32,7 @@ public class PrintJob {
         double pgH1 = pageLayout1.getPrintableHeight();
 
         TextArea tempTxtArea = new TextArea(text);
-        Image image = new Image("lk/system/assert/close.png");
+        Image image = new Image("lk/system/assert/image/close.png");
         Node n = tempTxtArea;
         ImageView im = new ImageView(image);
         tempTxtArea.setPrefSize(250, 200);

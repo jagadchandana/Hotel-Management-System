@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="561.0" prefWidth="729.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.PermenentIFormController">
+<AnchorPane prefHeight="561.0" prefWidth="729.0" stylesheets="@../assert/style/NButtonStyles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.system.controller.PermenentIFormController">
    <children>
       <AnchorPane prefHeight="25.0" prefWidth="729.0" style="-fx-background-color: #50d6ee;">
          <children>
@@ -44,7 +44,7 @@
       <JFXTextField fx:id="txtCompany" labelFloat="true" layoutX="14.0" layoutY="221.0" prefHeight="25.0" prefWidth="183.0" promptText="Company" />
       <JFXToggleButton fx:id="tbtnWarranty" graphicTextGap="2.0" layoutX="14.0" layoutY="400.0" prefHeight="0.0" prefWidth="120.0" size="5.0" text="Warenty" />
       <JFXButton fx:id="btnSave" layoutX="20.0" layoutY="440.0" onAction="#saveItemOnAction" text="Save Item" />
-      <JFXButton layoutX="142.0" layoutY="37.0" onAction="#newItemOnAction" text="New Item" />
+      <JFXButton layoutX="142.0" layoutY="37.0" onAction="#newItemOnAction" styleClass="spBtn" text="New Item" />
       <JFXButton layoutX="140.0" layoutY="440.0" onAction="#deleteItemOnAction" text="Delete" />
       <JFXTextArea fx:id="txtDescription" labelFloat="true" layoutX="14.0" layoutY="326.0" prefHeight="66.0" prefWidth="201.0" promptText="Description" />
       <TextField fx:id="txtSearch" layoutX="243.0" layoutY="35.0" />
